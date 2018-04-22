@@ -6,6 +6,25 @@ import router from './router'
 
 Vue.config.productionTip = false
 
+//register all component
+import JpnHeader from '@/components/JpnHeader'
+import JpnLeftBar from '@/components/JpnLeftBar'
+import JpnLeftBarItem from '@/components/JpnLeftBarItem'
+import JpnContent from '@/components/JpnContent'
+import ImageMenu from '@/components/ImageMenu'
+Vue.component('JpnHeader', JpnHeader);
+Vue.component('JpnLeftBar', JpnLeftBar);
+Vue.component('JpnLeftBarItem',JpnLeftBarItem);
+Vue.component('JpnContent', JpnContent);
+Vue.component('ImageMenu', ImageMenu);
+
+//import all style
+require('./style/fontawesome-all.min.css');
+require('./style/app.scss');
+require('./style/general.scss');
+
+console.log(process.env.NODE_ENV);
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
