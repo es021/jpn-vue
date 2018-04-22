@@ -22,9 +22,8 @@
 </template>
 
 <script>
-import { getNavigation } from "../helper/navi-helper";
+import { getNaviUrl } from "../helper/navi-helper";
 import { _GET } from "../helper/util-helper";
-import { AppRoot } from "../config/app-config";
 
 export default {
   name: "JpnLeftBarItem",
@@ -41,8 +40,7 @@ export default {
     };
   },
   created() {
-    this.href = `${AppRoot}/?page=${this.data.id}`; 
-
+    this.href = getNaviUrl(this.data);
     var page = _GET("page"); 
     if (page == this.data.id) {
       this.isActive = true;

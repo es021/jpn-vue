@@ -45,6 +45,11 @@ body.jpn-main {
     width: 100%;
 }
 
+.jpn-bar-content {
+    @include flex;
+    width: 100%;
+}
+
 .jpn-left-bar {
     /* to prevent padding go more than 100% width */
     padding-top: $HEADER-HEIGHT + 5;
