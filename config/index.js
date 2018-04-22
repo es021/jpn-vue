@@ -5,7 +5,7 @@
 const path = require('path')
 
 //@wzs21
-const ROOT_PATH = "jpn-vue-prod";
+const ROOT_PATH = "jpn-vue/public";
 
 module.exports = {
   dev: {
@@ -49,8 +49,8 @@ module.exports = {
     // Paths
     //assetsRoot: path.resolve(__dirname, '../dist'), // original
 
-    assetsRoot: path.resolve(__dirname, '../../'),
-    assetsSubDirectory: ROOT_PATH,
+    assetsRoot: path.resolve(__dirname, `../../`),
+    assetsSubDirectory: `${ROOT_PATH}/build`,
     assetsPublicPath: '/',
 
     /**
