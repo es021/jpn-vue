@@ -8,6 +8,7 @@ import JpnLeftBarItem from '@/components/JpnLeftBarItem'
 // register Router
 Vue.use(Router)
 require('../style/fontawesome-all.min.css');
+require('../style/app.scss');
 require('../style/general.scss');
 
 console.log(process.env.NODE_ENV);

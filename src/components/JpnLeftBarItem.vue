@@ -6,7 +6,7 @@
           <i v-if="data.children != null" :class="`fa fa-chevron-circle-${isOpen ? 'down' : 'right'} left sm`"></i>
           <i v-else :class="`fa fa-dot-circle sm left text-muted`"></i>
         </div>
-        <a :class="{ 'link': true, 'active': isActive }" :href="`/?page=${data.id}`">
+        <a :class="{ 'link': true, 'active': isActive }" :href="href">
           {{data.label}}
         </a>
       </li>
@@ -24,6 +24,7 @@
 <script>
 import { getNavigation } from "../helper/navi-helper";
 import { _GET } from "../helper/util-helper";
+import { AppRoot } from "../config/app-config";
 
 export default {
   name: "JpnLeftBarItem",
@@ -35,10 +36,13 @@ export default {
   data() {
     return {
       isActive: false,
-      isOpen: false
+      isOpen: false,
+      href: ""
     };
   },
   created() {
+    this.href = `${AppRoot}/?page=${this.data.id}`;
+
     var page = _GET("page");
     if (page == this.data.id) {
       this.isActive = true;

@@ -25,6 +25,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss">
 @import "../style/_constant.scss";
+@import "../style/_mixin.scss";
 .jpn-left-bar {
   text-align: left;
   overflow-x: scroll;
@@ -44,7 +45,8 @@ export default {
   }
   .li-item {
     padding-bottom: 3px;
-    display: flex; //white-space: nowrap;
+    @include flex;
+    //white-space: nowrap;
     a.link {
       color: white;
       text-decoration: none; //display: inline-block;

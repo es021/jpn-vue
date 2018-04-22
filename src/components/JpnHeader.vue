@@ -1,7 +1,7 @@
 <template>
   <div class="jpn-header">
     <div class="h-left">
-        <img class="logo" src="/test-e/asset/image/jpn-logo-sm.jpg" style="height: 60px; margin:0 10px;" />
+        <img class="logo" :src="require('../image/jpn-logo-sm.jpg')" style="height: 60px; margin:0 10px;" />
         <div class="detail">
             <div class="title">
                 Jabatan Pendaftaran Negara
@@ -44,23 +44,21 @@ export default {
 
 <style scoped lang="scss">
 @import "../style/_constant.scss";
+@import "../style/_mixin.scss";
 .jpn-header {
-  /*    display: -webkit-box;    
-    display: -moz-box;     
-    display: -ms-flexbox;   
-    display: -webkit-flex; 
-    display: flex;*/
+  @include flex;
+  @include flex-align(center);
 
   background: white;
   text-align: left;
-  align-items: center;
   justify-content: space-between;
-  display: flex;
+
   padding: 0 10px;
   box-shadow: 3px 2px 6px rgba(0, 0, 0, 0.5);
   .h-left {
-    align-items: center;
-    display: flex;
+    @include flex;
+    @include flex-align(center);
+
     img.logo {
       height: $HEADER-HEIGHT;
     }
