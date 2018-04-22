@@ -41,9 +41,9 @@ export default {
     };
   },
   created() {
-    this.href = `${AppRoot}/?page=${this.data.id}`;
+    this.href = `${AppRoot}/?page=${this.data.id}`; 
 
-    var page = _GET("page");
+    var page = _GET("page"); 
     if (page == this.data.id) {
       this.isActive = true;
       this.isOpen = true;
