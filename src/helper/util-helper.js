@@ -1,4 +1,5 @@
-const PAGE_DEFAULT = "menu-utama";
+
+import {NAVI_ROOT} from './navi-helper';
 
 export function _GET(sParam) {
     var sPageURL = decodeURIComponent(window.location.search.substring(1)),
@@ -17,8 +18,8 @@ export function _GET(sParam) {
         }
     }
 
-    if (sParam == "page" && !toRet) {
-        toRet = PAGE_DEFAULT;
+    if (sParam == "page" && toRet == null) {
+        toRet = NAVI_ROOT;
     }
 
     return toRet;

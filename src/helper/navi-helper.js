@@ -1,4 +1,5 @@
 import { AppRoot } from '../config/app-config';
+export const NAVI_ROOT = "menu-utama";
 
 export function getNavigationRaw() {
     return require('../dataset/navigation.json');
@@ -54,17 +55,22 @@ export function getNavigationSiblings(id) {
 }
 
 export function getNavigationById(id) {
+    if (id == NAVI_ROOT) {
+        return {
+            label: "Menu Utama",
+            children: getNavigation()
+        };
+    }
 
-    
     var debug = id == "pendaftaran-pengangkatan-mahkamah";
 
-    if(debug){
+    if (debug) {
         return {};
     }
 
     var siblings = getNavigationSiblings(id);
     for (var i in siblings) {
-        if(siblings[i].id == id){
+        if (siblings[i].id == id) {
             return siblings[i];
         }
     }

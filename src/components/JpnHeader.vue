@@ -1,9 +1,11 @@
 <template>
   <div class="jpn-header">
     <div class="h-left">
-        <img class="logo" :src="require('../image/jpn-logo-sm.jpg')" style="height: 60px; margin:0 10px;" />
+        <img class="logo" v-on:click="goToHome" 
+          :src="require('../image/jpn-logo-sm.jpg')" 
+          style="height: 60px; margin:0 10px;" />
         <div class="detail">
-            <div class="title">
+            <div class="title" v-on:click="goToHome">
                 Jabatan Pendaftaran Negara
             </div>
             <div class="subtitle">
@@ -28,6 +30,7 @@
 </template>
 
 <script>
+import { AppRoot } from "../config/app-config";
 export default {
   name: "JpnHeader",
   data() {
@@ -38,6 +41,11 @@ export default {
         login_time: "Month DD, YYY | HH:MM AM"
       }
     };
+  },
+  methods: {
+    goToHome() {
+      window.location = AppRoot;
+    }
   }
 };
 </script>
