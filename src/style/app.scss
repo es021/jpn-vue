@@ -1,5 +1,5 @@
-@import "../style/_constant.scss";
-@import "../style/_mixin.scss";
+@import "./define/_constant.scss";
+@import "./define/_mixin.scss";
 * {
     word-break: keep-all !important;
     overflow-wrap: break-word;

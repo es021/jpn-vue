@@ -1,5 +1,5 @@
 <template>
-<div class="jpn-content">
+<div v-bind:style="{backgroundImage:backgroundImage}" class="jpn-content">
     <div v-if="loading">
         <br>
         <i class='fa fa-spinner fa-pulse fa-4x'></i>
@@ -8,13 +8,11 @@
     <div v-else> 
       <!-- Image Menu -->
       <div v-if="type=='image-menu'">
-        <ImageMenu :title="params.title" :data="params.data"></ImageMenu>
+        <ImageMenu :parentId="page" :title="params.title" :data="params.data"></ImageMenu>
       </div>
       <!-- Default - Not Found -->
       <div v-else>
-        Page Not Found {{page}}
-        <br>
-        {{params}}
+        Page Not Found<br><b>{{page}}</b>
       </div>
 
     </div>
@@ -32,10 +30,13 @@ export default {
       loading: true,
       page: _GET("page"),
       type: null,
-      params: {}
+      params: {},
+      backgroundImage: `url('${require(`../image/content-bg.jpg`)}')`
     };
   },
   created() {
+    this.MENU_ITEM = ["menu-utama", "urusniaga-utama"];
+
     this.loadPage();
   },
   methods: {
@@ -45,36 +46,16 @@ export default {
       var page = _GET("page");
       if (code !== null) {
         //load external page
-      } else {
+      } else if ((this.MENU_ITEM.indexOf(page) >= 0)) {
         this.type = "image-menu";
         var naviObj = getNavigationById(page);
         this.params.data = naviObj.children;
         this.params.title = naviObj.label;
         // load internal page
       }
+
       this.loading = false;
     }
   }
 };
 </script>
-
-<style scoped lang="scss">
-@import "../style/_constant.scss";
-
-.jpn-content {
-  background-image: url(require("../image/content-bg.jpg"));
-  background-size: cover;
-  background-position: center center;
-
-  .content-body {
-    padding: 10px;
-  }
-
-  .content-load {
-    text-align: center;
-    width: 100%;
-    margin-top: 20px;
-    color: $COLOR-BLUE;
-  }
-}
-</style>

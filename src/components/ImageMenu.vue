@@ -1,9 +1,14 @@
 <template>
-  <div>
-    <h1>{{title}}</h1>
-    <br>
-    {{data}}
+  <span>
+  <h1>{{title}}</h1>
+  <div :class="`jpn-img-menu ${size}`">
+    <ImageMenuItem v-for="d in data" 
+      :data="d" 
+      :size="size"
+      :parentId="parentId"
+      :key="d.id"></ImageMenuItem>
   </div>
+  </span>
 </template>
 
 <script>
@@ -16,12 +21,20 @@ export default {
     },
     title: {
       type: String
+    },
+    parentId: {
+      type: String
     }
   },
   data() {
     return {
-      stuff: {}
+      size: ""
     };
+  },
+  created() {
+    if (this.data.length > 8) {
+      this.size = "md";
+    }
   }
 };
 </script>

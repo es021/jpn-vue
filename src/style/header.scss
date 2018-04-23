@@ -1,0 +1,47 @@
+@import "./define/_constant.scss";
+@import "./define/_mixin.scss";
+.jpn-header {
+    @include flex;
+    @include flex-align(center);
+    background: white;
+    text-align: left;
+    justify-content: space-between;
+    padding: 0 10px;
+    box-shadow: 3px 2px 6px rgba(0, 0, 0, 0.5);
+    .h-left {
+        @include flex;
+        @include flex-align(center);
+        img.logo {
+            height: $HEADER-HEIGHT;
+        }
+        .title {
+            // font-family: 'Jockey One';
+            // text-transform: uppercase;
+            // letter-spacing: 1px;
+            font-size: 25px;
+            line-height: 20px;
+            font-weight: bold;
+            color: $COLOR-BLUE;
+        }
+        .subtitle {
+            font-size: 17px;
+            opacity: 0.8;
+        }
+        .title,
+        img.logo {
+            cursor: pointer;
+        }
+        .title:hover,
+        img.logo:hover {
+            opacity: 0.7;
+        }
+        .title:active,
+        img.logo:active {
+            opacity: 1;
+        }
+    }
+    .h-right {
+        line-height: 15px;
+        margin-right: 10px;
+    }
+}

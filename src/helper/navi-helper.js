@@ -78,7 +78,11 @@ export function getNavigationById(id) {
 
 export function getNaviUrl(d) {
     var r = "";
-    r = `${AppRoot}/?page=${d.id}`;
+    if (d.url && d.url !== null && d.url !== "") {
+        r = d.url;
+    } else {
+        r = `${AppRoot}/?page=${d.id}`;
+    }
     return r;
 }
 

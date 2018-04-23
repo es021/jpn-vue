@@ -1,0 +1,14 @@
+@import "./define/_constant.scss";
+.jpn-content {
+    background-size: cover;
+    background-position: center center;
+    .content-body {
+        padding: 10px;
+    }
+    .content-load {
+        text-align: center;
+        width: 100%;
+        margin-top: 20px;
+        color: $COLOR-BLUE;
+    }
+}

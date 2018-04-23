@@ -6,6 +6,7 @@
       <JpnLeftBar></JpnLeftBar>
       <JpnContent></JpnContent>
     </div>
+    <JpnFooter></JpnFooter>
 </span>
 </template>
 

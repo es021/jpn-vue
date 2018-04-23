@@ -1,5 +1,10 @@
 <template>
   <div class="jpn-left-bar">
+    <div class="lb-header">
+      <a class="link" href="/"><i class="fa fa-home left"></i>
+      Menu Utama
+      </a>
+    </div>
     <JpnLeftBarItem v-for="d in data" 
       :data="d" 
       :key="d.id"/>
@@ -22,68 +27,4 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style lang="scss">
-@import "../style/_constant.scss";
-@import "../style/_mixin.scss";
-.jpn-left-bar {
-  text-align: left;
-  overflow-x: scroll;
-  overflow-y: scroll;
-  max-height: 100vh;
-  resize: horizontal;
-  ul.navi-list {
-    color: white;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    padding-left: 14px;
-    font-size: 14px;
-  }
-  ul.navi-list:last-of-type {
-    padding-bottom: 10px;
-  }
-  .li-item {
-    padding-bottom: 3px;
-    @include flex;
-    //white-space: nowrap;
-    a.link {
-      color: white;
-      text-decoration: none; //display: inline-block;
-      padding-right: 10px;
-      cursor: pointer;
-    }
-    a.link:hover {
-      text-decoration: underline !important;
-    }
-    a.link.active {
-      color: blue;
-      background: white;
-      padding: 0 5px;
-      border-radius: 8px;
-    }
-  }
-  .expand {
-    cursor: pointer;
-  }
-  .expand:hover {
-    opacity: 0.8;
-  }
-  /* ############################ */
-  /* 1st level parent only */
-  ul.parent {
-    padding: 5px;
-    padding-left: 7px;
-    border-bottom: rgba(255, 255, 255, 0.5) solid 1px;
-  }
-  ul.parent:last-of-type {
-    border-bottom: none;
-  }
-  ul.navi-list.parent {
-    font-weight: bold;
-  }
-  ul.navi-list {
-    font-weight: normal;
-  }
-}
-</style>
+
