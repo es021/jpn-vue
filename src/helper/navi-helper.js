@@ -1,6 +1,8 @@
 import { AppRoot } from '../config/app-config';
 export const NAVI_ROOT = "menu-utama";
-
+export function goToHome() {
+    window.location = AppRoot;
+}
 export function getNavigationRaw() {
     return require('../dataset/navigation.json');
 }

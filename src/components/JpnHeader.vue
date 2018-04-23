@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import { AppRoot } from "../config/app-config";
+import { goToHome } from "../helper/navi-helper";
 export default {
   name: "JpnHeader",
   data() {
@@ -42,8 +42,8 @@ export default {
     };
   },
   methods: {
-    goToHome() {
-      window.location = AppRoot;
+    goToHome(){
+      goToHome();
     }
   }
 };
