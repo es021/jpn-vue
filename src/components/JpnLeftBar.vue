@@ -1,9 +1,12 @@
 <template>
-  <div class="jpn-left-bar">
+  <div id="jpn-left-bar" class="jpn-left-bar">
     <div class="lb-header">
-      <a class="link" v-on:click="goToHome" ><i class="fa fa-home left"></i>
+      <router-link class="link" to="/" ><i class="fa fa-home left"></i>
+        Menu Utama
+      </router-link>
+      <!-- <a class="link" v-on:click="goToHome" ><i class="fa fa-home left"></i>
       Menu Utama
-      </a>
+      </a> -->
     </div>
     <JpnLeftBarItem v-for="d in data" 
       :data="d" 

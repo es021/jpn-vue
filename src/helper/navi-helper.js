@@ -11,6 +11,14 @@ export function getNavigationMapRaw() {
     return require('../dataset/navigation-map.json');
 }
 
+export function getCurrentPage(route) {
+    var page = route.params.page_id;
+    if (typeof page === "undefined") {
+        page = NAVI_ROOT;
+    }
+    return page;
+}
+
 export function getParents(curId) {
     var map = getNavigationMapRaw();
     var parents = [];
@@ -80,11 +88,16 @@ export function getNavigationById(id) {
 
 export function getNaviUrl(d) {
     var r = "";
-    if (d.url && d.url !== null && d.url !== "") {
-        r = d.url;
-    } else {
-        r = `${AppRoot}/?page=${d.id}`;
-    }
+    // if (d.url && d.url !== null && d.url !== "") {
+    //     r = d.url;
+    // } else {
+    //     r = `${AppRoot}/?page=${d.id}`;
+    // }
+
+    r = `/page/${d.id}`;
+
+    //r = "http://localhost:8080/JPN/COOP.T3861501.TC.html";
+
     return r;
 }
 

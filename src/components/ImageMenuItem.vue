@@ -1,10 +1,16 @@
 <template>
-  <a :href="data.url" v-bind:style="{backgroundImage:backgroundImage}" class="jim-item">
+  <router-link :to="data.url" v-bind:style="{backgroundImage:backgroundImage}" class="jim-item">
       <div class="detail">
           <div class="label">{{data.label}}</div>
           <div class="desc">{{data.desc}}</div>
       </div>
-  </a>
+  </router-link>
+  <!-- <a :href="data.url" v-bind:style="{backgroundImage:backgroundImage}" class="jim-item">
+      <div class="detail">
+          <div class="label">{{data.label}}</div>
+          <div class="desc">{{data.desc}}</div>
+      </div>
+  </a> -->
 </template>
 
 <script>

@@ -11,6 +11,12 @@ export default new Router({
       path: '/',
       name: 'AppHome',
       component: AppHome
+    },
+    //http://localhost:8081/#/page/selenggara-id
+    {
+      path: '/page/:page_id',
+      name: 'AppHome',
+      component: AppHome
     }
   ]
 })

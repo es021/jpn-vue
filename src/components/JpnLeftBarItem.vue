@@ -6,9 +6,13 @@
           <i v-if="data.children != null" :class="`fa fa-chevron-circle-${isOpen ? 'down' : 'right'} left sm`"></i>
           <i v-else :class="`fa fa-dot-circle sm left text-muted`"></i>
         </div>
-        <a :class="{ 'link': true, 'active': isActive }" :href="href">
+
+        <router-link :to="href" :class="{ 'link': true, 'active': isActive }">
           {{data.label}}
-        </a>
+        </router-link>
+        <!-- <a :class="{ 'link': true, 'active': isActive }" :href="href">
+          {{data.label}}
+        </a> -->
       </li>
 
       <div class="children" :hidden="!isOpen">
@@ -22,7 +26,7 @@
 </template>
 
 <script>
-import { getNaviUrl } from "../helper/navi-helper";
+import { getNaviUrl, getCurrentPage } from "../helper/navi-helper";
 import { _GET } from "../helper/util-helper";
 
 export default {
@@ -30,6 +34,13 @@ export default {
   props: {
     data: {
       type: Object
+    }
+  },
+  watch: {
+    $route(to, from) {
+      if (to.path !== from.path) {
+        this.init();
+      }
     }
   },
   data() {
@@ -40,15 +51,19 @@ export default {
     };
   },
   created() {
-    this.href = getNaviUrl(this.data);
-    var page = _GET("page"); 
-    if (page == this.data.id) {
-      this.isActive = true;
-      this.isOpen = true;
-      this.$emit("opened", page);
-    }
+    this.init();
   },
   methods: {
+    init() {
+      this.isActive = false;
+      this.href = getNaviUrl(this.data);
+      var page = getCurrentPage(this.$route);
+      if (page == this.data.id) {
+        this.isActive = true;
+        this.isOpen = true;
+        this.$emit("opened", page);
+      }
+    },
     onChildOpened: function(page) {
       this.$emit("opened", page);
       return (this.isOpen = true);

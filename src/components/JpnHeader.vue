@@ -1,13 +1,15 @@
 <template>
-  <div class="jpn-header">
+  <div id="jpn-header" class="jpn-header">
     <div class="h-left">
-        <img class="logo" v-on:click="goToHome" 
-          :src="require('../image/jpn-logo-sm.jpg')" 
-          style="height: 60px; margin:0 10px;" />
+        <router-link to="/">
+          <img class="logo"
+            :src="require('../image/jpn-logo-sm.jpg')" 
+            style="height: 60px; margin:0 10px;" />
+        </router-link>
         <div class="detail">
-            <div class="title" v-on:click="goToHome">
+            <router-link class="title" to="/">
                 Jabatan Pendaftaran Negara
-            </div>
+            </router-link>
             <div class="subtitle">
                 Kementerian Dalam Negeri
             </div>
@@ -42,7 +44,7 @@ export default {
     };
   },
   methods: {
-    goToHome(){
+    goToHome() {
       goToHome();
     }
   }

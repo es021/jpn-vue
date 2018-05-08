@@ -5,7 +5,8 @@
 const path = require('path')
 
 //@wzs21
-const ROOT_PATH = "jpn-vue/public";
+//const ROOT_PATH = "jpn-vue/public";
+const ROOT_PATH = "test/";
 
 module.exports = {
   dev: {
