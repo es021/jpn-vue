@@ -27,7 +27,6 @@
 
 <script>
 import { getNaviUrl, getCurrentPage } from "../helper/navi-helper";
-import { _GET } from "../helper/util-helper";
 
 export default {
   name: "JpnLeftBarItem",

@@ -1,0 +1,38 @@
+@import './define/_constant.scss';
+
+.btn {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.btn:hover{
+    opacity: 0.8;
+}
+
+.btn:active{
+    opacity: 1;
+}
+
+.btn:disabled{
+    opacity: 0.7 !important;
+}
+
+.btn.btn-lg{
+    padding: 15px 32px;
+}
+
+.btn.btn-sm{
+    padding: 10px 20px;
+}
+
+.btn.btn-blue {
+    background-color: $COLOR-BLUE;
+}

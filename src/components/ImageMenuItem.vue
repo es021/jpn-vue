@@ -34,7 +34,7 @@ export default {
   },
   created() {
     this.data.url = getNaviUrl(this.data);
-    console.log(this.data.url);
+    //console.log(this.data.url);
   },
   methods: {}
 };

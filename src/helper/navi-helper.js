@@ -1,5 +1,11 @@
 import { AppRoot } from '../config/app-config';
 export const NAVI_ROOT = "menu-utama";
+
+export function redirect(vue, url) {
+    console.log("redirect", url);
+    vue.$router.replace(url);
+}
+
 export function goToHome() {
     window.location = AppRoot;
 }
@@ -72,11 +78,11 @@ export function getNavigationById(id) {
         };
     }
 
-    var debug = id == "pendaftaran-pengangkatan-mahkamah";
+    // var debug = id == "pendaftaran-pengangkatan-mahkamah";
 
-    if (debug) {
-        return {};
-    }
+    // if (debug) {
+    //     return {};
+    // }
 
     var siblings = getNavigationSiblings(id);
     for (var i in siblings) {
@@ -95,7 +101,6 @@ export function getNaviUrl(d) {
     // }
 
     r = `/page/${d.id}`;
-
     //r = "http://localhost:8080/JPN/COOP.T3861501.TC.html";
 
     return r;

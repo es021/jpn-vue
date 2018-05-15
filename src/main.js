@@ -23,7 +23,7 @@ Vue.component('ImageMenu', ImageMenu);
 Vue.component('ImageMenuItem', ImageMenuItem);
 
 //import all style
-const scss = ["app", "content", "general", "header", "image-menu", "left-bar"];
+const scss = ["app","form","button", "content", "general", "header", "image-menu", "left-bar"];
 scss.map((d, i) => {
   require(`./style/${d}.scss`);
 })

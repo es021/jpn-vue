@@ -15,7 +15,7 @@
             </div>
         </div>
     </div>
-    <div class="text-right h-right">
+    <div v-if="loggedIn" class="text-right h-right">
         <b id="hdr-name" class="text-blue">{{user.name}}</b>
         <br>
         <small>
@@ -24,28 +24,57 @@
             <i id="hdr-time">{{user.login_time}}</i>
         </small>
         <small>
-            <div class="link link-blue">Keluar <i class="fa fa-sign-out-alt"></i></div>
+            <div @click="logOut" class="link link-blue">Keluar <i class="fa fa-sign-out-alt"></i></div>
         </small>
     </div>
 </div>
 </template>
 
 <script>
-import { goToHome } from "../helper/navi-helper";
+import { goToHome, redirect } from "../helper/navi-helper";
+import { AuthHelper } from "../helper/auth-helper";
 export default {
   name: "JpnHeader",
+  props: {
+    loggedIn: {
+      type: Boolean,
+      default: true
+    }
+  },
   data() {
     return {
       user: {
-        name: "Wan Zulsarhan",
+        name: "",
+        //office: "TODO BRANCH OFFICE",
         office: "JPN IBU PEJABAT PUTRAJAYA",
-        login_time: "April 28, 2018 09:30 AM"
+        //login_time: "April 28, 2018 09:30 AM"
+        login_time: ""
       }
     };
+  },
+  mounted() {
+    if (this.loggedIn) {
+      var user = AuthHelper.getUser();
+
+      if (typeof user !== "undefined") {
+        this.user.name = user.OPER_NAME;
+        // TODO Branch
+        this.user.login_time = user.OPER_LAST_SIGNON_DATE;
+        this.user.login_time += " " + user.Oper_Last_Logon_Time;
+      }
+    }
   },
   methods: {
     goToHome() {
       goToHome();
+    },
+    logOut() {
+      var res = confirm("Tekan 'OK' Untuk Keluar");
+      if (res) {
+        AuthHelper.logout(() => {
+          redirect(this, "/exit");
+        });
+      }
     }
   }
 };

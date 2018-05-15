@@ -14,8 +14,20 @@
         <h3><small>Window popup is currently opened for page</small><br>{{title}}</h3>
       </div>
       <!-- Default - Not Found -->
+      <div v-if="type==this.TYPE_FRAME">
+        <div>
+          <span v-if="frameLoading">
+            Loading page
+          </span>
+          <span v-else>
+            Successfully loaded page
+          </span>
+          <br>
+          <b>{{naviObj.label}}</b>
+        </div>
+        <iframe ref="iframe" :title="title" :src="naviObj.url" @load="frameOnLoad"></iframe>
+      </div>
       <div v-else>
-        <!-- <iframe :src="this.iframe_url"></iframe>  -->
          <!-- <span v-html="this.content"></span> -->
       </div>
     </div>
@@ -23,13 +35,15 @@
 </template>
 
 <script>
-import { _GET, openWindowPopup, closeWindowPopup } from "../helper/util-helper";
+import { openWindowPopup } from "../helper/util-helper";
 import {
   getNavigationById,
   getMapNavi,
   getCurrentPage
 } from "../helper/navi-helper";
+
 import { getRequest } from "../helper/api-helper";
+import { Domain } from "../config/app-config";
 
 export default {
   name: "JpnContent",
@@ -37,13 +51,16 @@ export default {
     return {
       TYPE_IMG_MENU: "img-menu",
       TYPE_POPUP: "popup",
+      TYPE_FRAME: "i-frame",
       loading: true,
       page: "",
       type: null,
       content: "Empty Content",
       title: "",
+      naviObj: null,
       params: {},
-      iframe_url: "",
+      windowPopup: null,
+      frameLoading: false,
       backgroundImage: `url('${require(`../image/content-bg.jpg`)}')`
     };
   },
@@ -52,41 +69,93 @@ export default {
       this.loadPage();
     }
   },
-  created() {
-    this.MENU_ITEM = ["menu-utama", "urusniaga-utama"];
-  },
   mounted() {
     this.loadPage();
   },
   methods: {
+    frameOnLoad() {
+      this.frameLoading = false;
+      console.log("frame loaded",this.$refs.iframe);
+      // try {
+      //   var iframe = this.$refs.iframe;
+      //   // Displays the first 50 chars in the innerHTML of the
+      //   // body of the page that the iframe is showing.
+      //   // EDIT 2012-04-17: for wider support, fallback to contentWindow.document
+      //   var doc = iframe.contentDocument || iframe.contentWindow.document;
+      //   alert(doc.body.innerHTML.substring(0, 50));
+      // } catch (e) {
+      //   // This can happen if the src of the iframe is
+      //   // on another domain
+      //   alert("exception: " + e);
+      // }
+    },
+    useFrame(naviObj) {
+      return false;
+      var FRAME = ["kelahiran"];
+      return FRAME.indexOf(naviObj.id) >= 0;
+    },
+    useMenuItem() {
+      var MENU_ITEM = ["menu-utama", "urusniaga-utama"];
+      return MENU_ITEM.indexOf(this.page) >= 0;
+    },
     loadPage() {
-      closeWindowPopup();
+      //closeWindowPopup();
       // parsing url parameter
-      //var code = _GET("code");
-      //var page = _GET("page");
+    
       this.content = "";
       this.loading = true;
 
       // get page
       var page = getCurrentPage(this.$route);
       this.page = page;
-
       var naviObj = getNavigationById(page);
+      console.log("naviObj url", naviObj.url);
+
       this.title = naviObj.label;
 
-      if (this.MENU_ITEM.indexOf(page) >= 0) {
+      // debug for url
+      if (
+        naviObj.url == "" ||
+        naviObj.url == null ||
+        typeof naviObj.url === "undefined"
+      ) {
+        naviObj.url = `http://192.168.0.240:8080/JPN/COOP.T3861501.TC.html`;
+      }
+
+      this.naviObj = naviObj;
+
+      if (this.useMenuItem()) {
+        // load menu item
         this.type = this.TYPE_IMG_MENU;
         this.params.data = naviObj.children;
         this.params.title = naviObj.label;
         this.loading = false;
-        // load internal page
+      } else if (this.useFrame(naviObj)) {
+        // load i frame
+        this.type = this.TYPE_FRAME;
+        this.loading = false;
+        this.frameLoading = true;
       } else {
+        // load window popup
+
         this.type = this.TYPE_POPUP;
-        naviObj.url = "http://localhost:8080/JPN/COOP.T3861501.TC.html";
+
+        //naviObj.url = "http://localhost/test-close/";
+        // if (page == "integrasi") {
+        //   naviObj.url = "http://localhost/cf-app/auth";
+        // }
+
+        // naviObj.url =
+        //   "https://www.google.com/search?client=ubuntu&channel=fs&q=" +
+        //   page +
+        //   "&ie=utf-8&oe=utf-8";
+
         //naviObj.url = "http://localhost/jpn-vue/public/test.html";
         //this.iframe_url = naviObj.url;
+
         this.loading = false;
-        openWindowPopup(naviObj.url);
+        this.windowPopup = openWindowPopup(naviObj.url);
+        // console.log(this.windowPopup);
         return;
         // getRequest(
         //   naviObj.url,

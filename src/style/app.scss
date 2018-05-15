@@ -3,6 +3,10 @@
 * {
     word-break: keep-all !important;
     overflow-wrap: break-word;
+
+    // to prevent padding go more than 100% width 
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
 }
 
 .break-all {
@@ -34,13 +38,13 @@ body.jpn-main {
     min-height: 100%;
 }
 
-.jpn-header,
-.jpn-footer,
-.jpn-left-bar {
-    /* to prevent padding go more than 100% width */
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-}
+// .jpn-header,
+// .jpn-footer,
+// .jpn-left-bar {
+//     /* to prevent padding go more than 100% width */
+//     // box-sizing: border-box;
+//     // -moz-box-sizing: border-box;
+// }
 
 .jpn-header {
     height: $HEADER-HEIGHT;
@@ -71,7 +75,15 @@ body.jpn-main {
     padding-top: $HEADER-HEIGHT + 10;
     padding-left: $LEFT-WIDTH;
     background: $COLOR-GRAY-LIGHT;
-    min-height: 80vh;
+    min-height: 95vh;
+    width: 100%;
+}
+
+.jpn-login {
+    padding-top: $HEADER-HEIGHT + 10;
+    background-size: cover;
+    background-position: center center;
+    min-height: 100vh;
     width: 100%;
 }
 

@@ -11,7 +11,19 @@
 </template>
 
 <script>
+import { AuthHelper } from "../helper/auth-helper";
+import { redirect } from "../helper/navi-helper";
+
 export default {
-  name: "AppHome"
+  name: "AppHome",
+  created() {
+    //postRequest(this);
+  },
+  mounted() {
+    if (!AuthHelper.loggedIn()) {
+      redirect(this, "/exit");
+      return;
+    }
+  }
 };
 </script>
