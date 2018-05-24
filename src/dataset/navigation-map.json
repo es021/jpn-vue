@@ -1,1 +1,398 @@
-{"senarai-kerja":{"label":"Senarai Kerja","parent":null},"urusniaga-utama":{"label":"Urusniaga Utama","parent":null},"kelahiran":{"label":"Kelahiran","parent":"urusniaga-utama"},"kematian":{"label":"Kematian","parent":"urusniaga-utama"},"pengangkatan-ejpn":{"label":"Pengangkatan eJPN","parent":"urusniaga-utama"},"pengangkatan-ejpn-pendaftaran-pengangkatan-mahkamah":{"label":"Pendaftaran Pengangkatan Mahkamah","parent":"pengangkatan-ejpn"},"penerimaan-permohonan-pengangkatan":{"label":"Penerimaan Permohonan Pengangkatan","parent":"pengangkatan-ejpn-pendaftaran-pengangkatan-mahkamah"},"pengangkatan-ejpn-pendaftaran-pengangkatan-mahkamah-pendaftaran-pengangkatan-mahkamah":{"label":"Pendaftaran Pengangkatan Mahkamah","parent":"pengangkatan-ejpn-pendaftaran-pengangkatan-mahkamah"},"pengesahan-pendaftaran-pengangkatan-mahkamah":{"label":"Pengesahan Pendaftaran Pengangkatan Mahkamah","parent":"pengangkatan-ejpn-pendaftaran-pengangkatan-mahkamah"},"cetakan-sijil-pendaftaran-pengangkatan-mahkamah":{"label":"Cetakan Sijil Pendaftaran Pengangkatan Mahkamah","parent":"pengangkatan-ejpn-pendaftaran-pengangkatan-mahkamah"},"bayaran-pendaftaran-pengangkatan-mahkamah":{"label":"Bayaran Pendaftaran Pengangkatan Mahkamah","parent":"pengangkatan-ejpn-pendaftaran-pengangkatan-mahkamah"},"pembatalan-bayaran-pendaftaran-pengangkatan-mahkamah":{"label":"Pembatalan Bayaran Pendaftaran Pengangkatan Mahkamah","parent":"pengangkatan-ejpn-pendaftaran-pengangkatan-mahkamah"},"serahan-daftar-individu-mykid":{"label":"Serahan Daftar Individu/MyKid","parent":"pengangkatan-ejpn-pendaftaran-pengangkatan-mahkamah"},"permohonan-pindaan-maklumat-pengangkatan-mahkamah":{"label":"Permohonan Pindaan Maklumat Pengangkatan Mahkamah","parent":"pengangkatan-ejpn"},"penerimaan-permohonan-pindaan-maklumat-pengangkatan":{"label":"Penerimaan Permohonan Pindaan Maklumat Pengangkatan","parent":"permohonan-pindaan-maklumat-pengangkatan-mahkamah"},"permohonan-pindaan-maklumat-pengangkatan-mahkamah-kesilapan-fakta":{"label":"Permohonan Pindaan Maklumat Pengangkatan Mahkamah (Kesilapan Fakta)","parent":"permohonan-pindaan-maklumat-pengangkatan-mahkamah"},"pengesahan-pindaan-maklumat-pengangkatan-mahkamah-kesilapan-fakta":{"label":"Pengesahan Pindaan Maklumat Pengangkatan Mahkamah (Kesilapan Fakta)","parent":"permohonan-pindaan-maklumat-pengangkatan-mahkamah"},"cetakan-sijil-pindaan-maklumat-pengangkatan-mahkamah":{"label":"Cetakan Sijil Pindaan Maklumat Pengangkatan Mahkamah","parent":"permohonan-pindaan-maklumat-pengangkatan-mahkamah"},"bayaran-pindaan-maklumat-pengangkatan-mahkamah":{"label":"Bayaran Pindaan Maklumat Pengangkatan Mahkamah","parent":"permohonan-pindaan-maklumat-pengangkatan-mahkamah"},"pembatalan-bayaran-pindaan-maklumat-pengangkatan-mahkamah":{"label":"Pembatalan Bayaran Pindaan Maklumat Pengangkatan Mahkamah","parent":"permohonan-pindaan-maklumat-pengangkatan-mahkamah"},"cabutan":{"label":"Cabutan","parent":"pengangkatan-ejpn"},"permohonan-cabutan-sijil-pengangkatan":{"label":"Permohonan Cabutan Sijil Pengangkatan","parent":"cabutan"},"pengesahan-cabutan-sijil-pengangkatan":{"label":"Pengesahan Cabutan Sijil Pengangkatan","parent":"cabutan"},"bayaran-cabutan-sijil-pengangkatan":{"label":"Bayaran Cabutan Sijil Pengangkatan","parent":"cabutan"},"pembatalan-bayaran-cabutan-sijil-pengangkatan":{"label":"Pembatalan Bayaran Cabutan Sijil Pengangkatan","parent":"cabutan"},"penyelenggaraan-dan-pembatalan":{"label":"Penyelenggaraan Dan Pembatalan","parent":"pengangkatan-ejpn"},"penyelenggaraan-nombor-siri-sijil-pengangkatan":{"label":"Penyelenggaraan Nombor Siri Sijil Pengangkatan","parent":"penyelenggaraan-dan-pembatalan"},"pembatalan-daftar-dan-cetakan-semula-sijil-pengangkatan":{"label":"Pembatalan Daftar dan Cetakan Semula Sijil Pengangkatan","parent":"penyelenggaraan-dan-pembatalan"},"pengangkatan-ejpn-cetakan":{"label":"Cetakan","parent":"pengangkatan-ejpn"},"cetakan-semula-notis-perakuan-penerimaan-permohonan-pengangkatan":{"label":"Cetakan Semula Notis Perakuan Penerimaan Permohonan Pengangkatan","parent":"pengangkatan-ejpn-cetakan"},"cetakan-semula-notis-perakuan-penerimaan-pindaan-maklumat-pengangkatan":{"label":"Cetakan Semula Notis Perakuan Penerimaan Pindaan Maklumat Pengangkatan","parent":"pengangkatan-ejpn-cetakan"},"cetakan-semula-surat-makluman-kepada-mahkamah":{"label":"Cetakan Semula Surat Makluman Kepada Mahkamah","parent":"pengangkatan-ejpn-cetakan"},"cetakan-semula-surat-kepada-sesiapa-berkenaan":{"label":"Cetakan Semula Surat Kepada Sesiapa Berkenaan","parent":"pengangkatan-ejpn-cetakan"},"cetakan-semula-notis-bayaran-belum-diterima":{"label":"Cetakan Semula Notis Bayaran Belum Diterima","parent":"pengangkatan-ejpn-cetakan"},"cetakan-semula-notis-kutipan-mykid":{"label":"Cetakan Semula Notis Kutipan MyKid","parent":"pengangkatan-ejpn-cetakan"},"cetakan-semula-salinan-sah-daftar":{"label":"Cetakan Semula Salinan Sah Daftar","parent":"pengangkatan-ejpn-cetakan"},"cetakan-semula-validasi-borang":{"label":"Cetakan Semula Validasi Borang","parent":"pengangkatan-ejpn-cetakan"},"cetakan-semula-resit-bayaran":{"label":"Cetakan Semula Resit Bayaran","parent":"pengangkatan-ejpn-cetakan"},"pengangkatan-ijpn":{"label":"Pengangkatan iJPN","parent":"urusniaga-utama"},"pengurusan-cawangan-ejpn":{"label":"Pengurusan Cawangan eJPN","parent":"urusniaga-utama"},"pengurusan-cawangan-ejpn-selenggara":{"label":"Selenggara","parent":"pengurusan-cawangan-ejpn"},"selenggara-tempoh-notis-kutipan-mykid":{"label":"Selenggara Tempoh Notis Kutipan MyKid","parent":"pengurusan-cawangan-ejpn-selenggara"},"selenggara-nombor-telefon-pejabat-jpn":{"label":"Selenggara Nombor Telefon Pejabat JPN","parent":"pengurusan-cawangan-ejpn-selenggara"},"selenggara-id-pengguna":{"label":"Selenggara ID Pengguna","parent":"pengurusan-cawangan-ejpn-selenggara"},"sokongan-cetakan":{"label":"Sokongan/cetakan","parent":"pengurusan-cawangan-ejpn"},"menu-utama-dan-skrin-login":{"label":"Menu Utama dan Skrin Login","parent":"sokongan-cetakan"},"sokongan-cetakan-senarai-kerja":{"label":"Senarai Kerja","parent":"sokongan-cetakan"},"senarai-pengumpulan-borang-urusniaga":{"label":"Senarai Pengumpulan Borang Urusniaga","parent":"sokongan-cetakan"},"senarai-cetakan-sijil-mengikut-status":{"label":"Senarai Cetakan Sijil Mengikut Status","parent":"sokongan-cetakan"},"teknikal":{"label":"Teknikal","parent":"pengurusan-cawangan-ejpn"},"pertanyaan-translog":{"label":"Pertanyaan Translog","parent":"teknikal"},"pemindahan-rekod-urusniaga-luar-talian-ke-hos":{"label":"Pemindahan Rekod Urusniaga Luar Talian ke Hos","parent":"teknikal"},"offline-web-scheduler":{"label":"Offline Web Scheduler","parent":"teknikal"},"perkahwinan-dan-penceraian-ejpn":{"label":"Perkahwinan dan Penceraian eJPN","parent":"urusniaga-utama"},"perkahwinan-dan-penceraian-ejpn-pendaftaran-perkahwinan":{"label":"Pendaftaran Perkahwinan","parent":"perkahwinan-dan-penceraian-ejpn"},"permohonan-perkahwinan":{"label":"Permohonan Perkahwinan","parent":"perkahwinan-dan-penceraian-ejpn-pendaftaran-perkahwinan"},"pengesahan-permohonan-perkahwinan":{"label":"Pengesahan Permohonan Perkahwinan","parent":"perkahwinan-dan-penceraian-ejpn-pendaftaran-perkahwinan"},"bayaran-permohonan-perkahwinan":{"label":"Bayaran Permohonan Perkahwinan","parent":"perkahwinan-dan-penceraian-ejpn-pendaftaran-perkahwinan"},"pembatalan-bayaran-permohonan-perkahwinan":{"label":"Pembatalan Bayaran Permohonan Perkahwinan","parent":"perkahwinan-dan-penceraian-ejpn-pendaftaran-perkahwinan"},"perakuan-perkahwinan":{"label":"Perakuan Perkahwinan","parent":"perkahwinan-dan-penceraian-ejpn-pendaftaran-perkahwinan"},"bayaran-perakuan-perkahwinan":{"label":"Bayaran Perakuan Perkahwinan","parent":"perkahwinan-dan-penceraian-ejpn-pendaftaran-perkahwinan"},"pembatalan-bayaran-perakuan-perkahwinan":{"label":"Pembatalan Bayaran Perakuan Perkahwinan","parent":"perkahwinan-dan-penceraian-ejpn-pendaftaran-perkahwinan"},"cetakan-semula-surat-perakuan-perkahwinan":{"label":"Cetakan Semula Surat Perakuan Perkahwinan","parent":"perkahwinan-dan-penceraian-ejpn-pendaftaran-perkahwinan"},"perkahwinan-dan-penceraian-ejpn-pendaftaran-perkahwinan-pendaftaran-perkahwinan":{"label":"Pendaftaran Perkahwinan","parent":"perkahwinan-dan-penceraian-ejpn-pendaftaran-perkahwinan"},"bayaran-pendaftaran-perkahwinan":{"label":"Bayaran Pendaftaran Perkahwinan","parent":"perkahwinan-dan-penceraian-ejpn-pendaftaran-perkahwinan"},"pembatalan-pembayaran-perkahwinan":{"label":"Pembatalan Pembayaran Perkahwinan","parent":"perkahwinan-dan-penceraian-ejpn-pendaftaran-perkahwinan"},"pengesahan-pendaftaran-perkahwinan":{"label":"Pengesahan Pendaftaran Perkahwinan","parent":"perkahwinan-dan-penceraian-ejpn-pendaftaran-perkahwinan"},"pertukaran-tempat-dan-tarikh-upacara":{"label":"Pertukaran Tempat Dan Tarikh Upacara","parent":"perkahwinan-dan-penceraian-ejpn-pendaftaran-perkahwinan"},"permohonan-bantahan-perkahwinan":{"label":"Permohonan Bantahan Perkahwinan","parent":"perkahwinan-dan-penceraian-ejpn-pendaftaran-perkahwinan"},"bayaran-permohonan-bantahan-perkahwinan":{"label":"Bayaran Permohonan Bantahan Perkahwinan","parent":"perkahwinan-dan-penceraian-ejpn-pendaftaran-perkahwinan"},"pembatalan-bayaran-permohonan-bantahan-perkahwinan":{"label":"Pembatalan Bayaran Permohonan Bantahan Perkahwinan","parent":"perkahwinan-dan-penceraian-ejpn-pendaftaran-perkahwinan"},"kemaskini-keputusan-bantahan-perkahwinan":{"label":"Kemaskini Keputusan Bantahan Perkahwinan","parent":"perkahwinan-dan-penceraian-ejpn-pendaftaran-perkahwinan"},"kemaskini-rekod-tangguh":{"label":"Kemaskini Rekod Tangguh","parent":"perkahwinan-dan-penceraian-ejpn-pendaftaran-perkahwinan"},"pembatalan-perkahwinan":{"label":"Pembatalan Perkahwinan","parent":"perkahwinan-dan-penceraian-ejpn"},"pembatalan-permohonan-perkahwinan":{"label":"Pembatalan Permohonan Perkahwinan","parent":"pembatalan-perkahwinan"},"perkahwinan-dan-penceraian-ejpn-selenggara":{"label":"Selenggara","parent":"perkahwinan-dan-penceraian-ejpn"},"penyelenggaraan-no-daftar-dan-no-siri-sijil":{"label":"Penyelenggaraan No. Daftar dan No. Siri Sijil","parent":"perkahwinan-dan-penceraian-ejpn-selenggara"},"perkahwinan-dan-penceraian-ejpn-cetakan":{"label":"Cetakan","parent":"perkahwinan-dan-penceraian-ejpn"},"pembatalan-daftar-cabutan-perkahwinan-dan-cetakan-semula":{"label":"Pembatalan Daftar/Cabutan Perkahwinan dan Cetakan Semula","parent":"perkahwinan-dan-penceraian-ejpn-cetakan"},"cetakan-semula-surat-temujanji":{"label":"Cetakan Semula Surat Temujanji","parent":"perkahwinan-dan-penceraian-ejpn-cetakan"},"cetakan-semula-validasi-borang-permohonan":{"label":"Cetakan Semula Validasi Borang Permohonan","parent":"perkahwinan-dan-penceraian-ejpn-cetakan"},"cetakan-semula-semakan-daftar-perkahwinan":{"label":"Cetakan Semula Semakan Daftar Perkahwinan","parent":"perkahwinan-dan-penceraian-ejpn-cetakan"},"cetakan-semula-no-resit":{"label":"Cetakan Semula No Resit","parent":"perkahwinan-dan-penceraian-ejpn-cetakan"},"perkahwinan-dan-penceraian-ijpn":{"label":"Perkahwinan dan Penceraian iJPN","parent":"urusniaga-utama"},"warganegara":{"label":"Warganegara","parent":"urusniaga-utama"},"kad-pengenalan":{"label":"Kad Pengenalan","parent":"urusniaga-utama"},"siasatan-dan-penguatkuasaan":{"label":"Siasatan dan Penguatkuasaan","parent":"urusniaga-utama"},"senarai-hitam":{"label":"Senarai Hitam","parent":"urusniaga-utama"},"kutipan-hasil-ijpn":{"label":"Kutipan Hasil iJPN","parent":"urusniaga-utama"},"pengujudan-dan-pengesahan-rekod":{"label":"Pengujudan dan Pengesahan Rekod","parent":"urusniaga-utama"},"afis":{"label":"AFIS","parent":"urusniaga-utama"},"myidentity":{"label":"myIDENTITY","parent":"urusniaga-utama"},"idata":{"label":"iDATA","parent":"urusniaga-utama"},"sistem-dalaman-utama":{"label":"Sistem Dalaman Utama","parent":null},"integrasi":{"label":"Integrasi","parent":null},"hebahan":{"label":"Hebahan","parent":null},"informasi":{"label":"Informasi","parent":null},"selenggara-id":{"label":"Selenggara ID","parent":null},"spk":{"label":"SPK","parent":null}}
+{
+    "senarai-kerja": {
+        "label": "Senarai Kerja",
+        "parent": null
+    },
+    "urusniaga-utama": {
+        "label": "Urusniaga Utama",
+        "parent": null
+    },
+    "kelahiran": {
+        "label": "Kelahiran",
+        "parent": "urusniaga-utama"
+    },
+    "kematian": {
+        "label": "Kematian",
+        "parent": "urusniaga-utama"
+    },
+    "pengangkatan-ejpn": {
+        "label": "Pengangkatan eJPN",
+        "parent": "urusniaga-utama"
+    },
+    "pengangkatan-ejpn-pendaftaran-pengangkatan-mahkamah": {
+        "label": "Pendaftaran Pengangkatan Mahkamah",
+        "parent": "pengangkatan-ejpn"
+    },
+    "penerimaan-permohonan-pengangkatan": {
+        "label": "Penerimaan Permohonan Pengangkatan",
+        "parent": "pengangkatan-ejpn-pendaftaran-pengangkatan-mahkamah"
+    },
+    "pengangkatan-ejpn-pendaftaran-pengangkatan-mahkamah-pendaftaran-pengangkatan-mahkamah": {
+        "label": "Pendaftaran Pengangkatan Mahkamah",
+        "parent": "pengangkatan-ejpn-pendaftaran-pengangkatan-mahkamah"
+    },
+    "pengesahan-pendaftaran-pengangkatan-mahkamah": {
+        "label": "Pengesahan Pendaftaran Pengangkatan Mahkamah",
+        "parent": "pengangkatan-ejpn-pendaftaran-pengangkatan-mahkamah"
+    },
+    "cetakan-sijil-pendaftaran-pengangkatan-mahkamah": {
+        "label": "Cetakan Sijil Pendaftaran Pengangkatan Mahkamah",
+        "parent": "pengangkatan-ejpn-pendaftaran-pengangkatan-mahkamah"
+    },
+    "bayaran-pendaftaran-pengangkatan-mahkamah": {
+        "label": "Bayaran Pendaftaran Pengangkatan Mahkamah",
+        "parent": "pengangkatan-ejpn-pendaftaran-pengangkatan-mahkamah"
+    },
+    "pembatalan-bayaran-pendaftaran-pengangkatan-mahkamah": {
+        "label": "Pembatalan Bayaran Pendaftaran Pengangkatan Mahkamah",
+        "parent": "pengangkatan-ejpn-pendaftaran-pengangkatan-mahkamah"
+    },
+    "serahan-daftar-individu-mykid": {
+        "label": "Serahan Daftar Individu/MyKid",
+        "parent": "pengangkatan-ejpn-pendaftaran-pengangkatan-mahkamah"
+    },
+    "permohonan-pindaan-maklumat-pengangkatan-mahkamah": {
+        "label": "Permohonan Pindaan Maklumat Pengangkatan Mahkamah",
+        "parent": "pengangkatan-ejpn"
+    },
+    "penerimaan-permohonan-pindaan-maklumat-pengangkatan": {
+        "label": "Penerimaan Permohonan Pindaan Maklumat Pengangkatan",
+        "parent": "permohonan-pindaan-maklumat-pengangkatan-mahkamah"
+    },
+    "permohonan-pindaan-maklumat-pengangkatan-mahkamah-kesilapan-fakta": {
+        "label": "Permohonan Pindaan Maklumat Pengangkatan Mahkamah (Kesilapan Fakta)",
+        "parent": "permohonan-pindaan-maklumat-pengangkatan-mahkamah"
+    },
+    "pengesahan-pindaan-maklumat-pengangkatan-mahkamah-kesilapan-fakta": {
+        "label": "Pengesahan Pindaan Maklumat Pengangkatan Mahkamah (Kesilapan Fakta)",
+        "parent": "permohonan-pindaan-maklumat-pengangkatan-mahkamah"
+    },
+    "cetakan-sijil-pindaan-maklumat-pengangkatan-mahkamah": {
+        "label": "Cetakan Sijil Pindaan Maklumat Pengangkatan Mahkamah",
+        "parent": "permohonan-pindaan-maklumat-pengangkatan-mahkamah"
+    },
+    "bayaran-pindaan-maklumat-pengangkatan-mahkamah": {
+        "label": "Bayaran Pindaan Maklumat Pengangkatan Mahkamah",
+        "parent": "permohonan-pindaan-maklumat-pengangkatan-mahkamah"
+    },
+    "pembatalan-bayaran-pindaan-maklumat-pengangkatan-mahkamah": {
+        "label": "Pembatalan Bayaran Pindaan Maklumat Pengangkatan Mahkamah",
+        "parent": "permohonan-pindaan-maklumat-pengangkatan-mahkamah"
+    },
+    "cabutan": {
+        "label": "Cabutan",
+        "parent": "pengangkatan-ejpn"
+    },
+    "permohonan-cabutan-sijil-pengangkatan": {
+        "label": "Permohonan Cabutan Sijil Pengangkatan",
+        "parent": "cabutan"
+    },
+    "pengesahan-cabutan-sijil-pengangkatan": {
+        "label": "Pengesahan Cabutan Sijil Pengangkatan",
+        "parent": "cabutan"
+    },
+    "bayaran-cabutan-sijil-pengangkatan": {
+        "label": "Bayaran Cabutan Sijil Pengangkatan",
+        "parent": "cabutan"
+    },
+    "pembatalan-bayaran-cabutan-sijil-pengangkatan": {
+        "label": "Pembatalan Bayaran Cabutan Sijil Pengangkatan",
+        "parent": "cabutan"
+    },
+    "penyelenggaraan-dan-pembatalan": {
+        "label": "Penyelenggaraan Dan Pembatalan",
+        "parent": "pengangkatan-ejpn"
+    },
+    "penyelenggaraan-nombor-siri-sijil-pengangkatan": {
+        "label": "Penyelenggaraan Nombor Siri Sijil Pengangkatan",
+        "parent": "penyelenggaraan-dan-pembatalan"
+    },
+    "pembatalan-daftar-dan-cetakan-semula-sijil-pengangkatan": {
+        "label": "Pembatalan Daftar dan Cetakan Semula Sijil Pengangkatan",
+        "parent": "penyelenggaraan-dan-pembatalan"
+    },
+    "pengangkatan-ejpn-cetakan": {
+        "label": "Cetakan",
+        "parent": "pengangkatan-ejpn"
+    },
+    "cetakan-semula-notis-perakuan-penerimaan-permohonan-pengangkatan": {
+        "label": "Cetakan Semula Notis Perakuan Penerimaan Permohonan Pengangkatan",
+        "parent": "pengangkatan-ejpn-cetakan"
+    },
+    "cetakan-semula-notis-perakuan-penerimaan-pindaan-maklumat-pengangkatan": {
+        "label": "Cetakan Semula Notis Perakuan Penerimaan Pindaan Maklumat Pengangkatan",
+        "parent": "pengangkatan-ejpn-cetakan"
+    },
+    "cetakan-semula-surat-makluman-kepada-mahkamah": {
+        "label": "Cetakan Semula Surat Makluman Kepada Mahkamah",
+        "parent": "pengangkatan-ejpn-cetakan"
+    },
+    "cetakan-semula-surat-kepada-sesiapa-berkenaan": {
+        "label": "Cetakan Semula Surat Kepada Sesiapa Berkenaan",
+        "parent": "pengangkatan-ejpn-cetakan"
+    },
+    "cetakan-semula-notis-bayaran-belum-diterima": {
+        "label": "Cetakan Semula Notis Bayaran Belum Diterima",
+        "parent": "pengangkatan-ejpn-cetakan"
+    },
+    "cetakan-semula-notis-kutipan-mykid": {
+        "label": "Cetakan Semula Notis Kutipan MyKid",
+        "parent": "pengangkatan-ejpn-cetakan"
+    },
+    "cetakan-semula-salinan-sah-daftar": {
+        "label": "Cetakan Semula Salinan Sah Daftar",
+        "parent": "pengangkatan-ejpn-cetakan"
+    },
+    "cetakan-semula-validasi-borang": {
+        "label": "Cetakan Semula Validasi Borang",
+        "parent": "pengangkatan-ejpn-cetakan"
+    },
+    "cetakan-semula-resit-bayaran": {
+        "label": "Cetakan Semula Resit Bayaran",
+        "parent": "pengangkatan-ejpn-cetakan"
+    },
+    "pengangkatan-ijpn": {
+        "label": "Pengangkatan iJPN",
+        "parent": "urusniaga-utama"
+    },
+    "pengurusan-cawangan-ejpn": {
+        "label": "Pengurusan Cawangan eJPN",
+        "parent": "urusniaga-utama"
+    },
+    "pengurusan-cawangan-ejpn-selenggara": {
+        "label": "Selenggara",
+        "parent": "pengurusan-cawangan-ejpn"
+    },
+    "selenggara-tempoh-notis-kutipan-mykid": {
+        "label": "Selenggara Tempoh Notis Kutipan MyKid",
+        "parent": "pengurusan-cawangan-ejpn-selenggara"
+    },
+    "selenggara-nombor-telefon-pejabat-jpn": {
+        "label": "Selenggara Nombor Telefon Pejabat JPN",
+        "parent": "pengurusan-cawangan-ejpn-selenggara"
+    },
+    "selenggara-id-pengguna": {
+        "label": "Selenggara ID Pengguna",
+        "parent": "pengurusan-cawangan-ejpn-selenggara"
+    },
+    "sokongan-cetakan": {
+        "label": "Sokongan/cetakan",
+        "parent": "pengurusan-cawangan-ejpn"
+    },
+    "menu-utama-dan-skrin-login": {
+        "label": "Menu Utama dan Skrin Login",
+        "parent": "sokongan-cetakan"
+    },
+    "sokongan-cetakan-senarai-kerja": {
+        "label": "Senarai Kerja",
+        "parent": "sokongan-cetakan"
+    },
+    "senarai-pengumpulan-borang-urusniaga": {
+        "label": "Senarai Pengumpulan Borang Urusniaga",
+        "parent": "sokongan-cetakan"
+    },
+    "senarai-cetakan-sijil-mengikut-status": {
+        "label": "Senarai Cetakan Sijil Mengikut Status",
+        "parent": "sokongan-cetakan"
+    },
+    "teknikal": {
+        "label": "Teknikal",
+        "parent": "pengurusan-cawangan-ejpn"
+    },
+    "pertanyaan-translog": {
+        "label": "Pertanyaan Translog",
+        "parent": "teknikal"
+    },
+    "pemindahan-rekod-urusniaga-luar-talian-ke-hos": {
+        "label": "Pemindahan Rekod Urusniaga Luar Talian ke Hos",
+        "parent": "teknikal"
+    },
+    "offline-web-scheduler": {
+        "label": "Offline Web Scheduler",
+        "parent": "teknikal"
+    },
+    "perkahwinan-dan-penceraian-ejpn": {
+        "label": "Perkahwinan dan Penceraian eJPN",
+        "parent": "urusniaga-utama"
+    },
+    "perkahwinan-dan-penceraian-ejpn-pendaftaran-perkahwinan": {
+        "label": "Pendaftaran Perkahwinan",
+        "parent": "perkahwinan-dan-penceraian-ejpn"
+    },
+    "permohonan-perkahwinan": {
+        "label": "Permohonan Perkahwinan",
+        "parent": "perkahwinan-dan-penceraian-ejpn-pendaftaran-perkahwinan"
+    },
+    "pengesahan-permohonan-perkahwinan": {
+        "label": "Pengesahan Permohonan Perkahwinan",
+        "parent": "perkahwinan-dan-penceraian-ejpn-pendaftaran-perkahwinan"
+    },
+    "bayaran-permohonan-perkahwinan": {
+        "label": "Bayaran Permohonan Perkahwinan",
+        "parent": "perkahwinan-dan-penceraian-ejpn-pendaftaran-perkahwinan"
+    },
+    "pembatalan-bayaran-permohonan-perkahwinan": {
+        "label": "Pembatalan Bayaran Permohonan Perkahwinan",
+        "parent": "perkahwinan-dan-penceraian-ejpn-pendaftaran-perkahwinan"
+    },
+    "perakuan-perkahwinan": {
+        "label": "Perakuan Perkahwinan",
+        "parent": "perkahwinan-dan-penceraian-ejpn-pendaftaran-perkahwinan"
+    },
+    "bayaran-perakuan-perkahwinan": {
+        "label": "Bayaran Perakuan Perkahwinan",
+        "parent": "perkahwinan-dan-penceraian-ejpn-pendaftaran-perkahwinan"
+    },
+    "pembatalan-bayaran-perakuan-perkahwinan": {
+        "label": "Pembatalan Bayaran Perakuan Perkahwinan",
+        "parent": "perkahwinan-dan-penceraian-ejpn-pendaftaran-perkahwinan"
+    },
+    "cetakan-semula-surat-perakuan-perkahwinan": {
+        "label": "Cetakan Semula Surat Perakuan Perkahwinan",
+        "parent": "perkahwinan-dan-penceraian-ejpn-pendaftaran-perkahwinan"
+    },
+    "perkahwinan-dan-penceraian-ejpn-pendaftaran-perkahwinan-pendaftaran-perkahwinan": {
+        "label": "Pendaftaran Perkahwinan",
+        "parent": "perkahwinan-dan-penceraian-ejpn-pendaftaran-perkahwinan"
+    },
+    "bayaran-pendaftaran-perkahwinan": {
+        "label": "Bayaran Pendaftaran Perkahwinan",
+        "parent": "perkahwinan-dan-penceraian-ejpn-pendaftaran-perkahwinan"
+    },
+    "pembatalan-pembayaran-perkahwinan": {
+        "label": "Pembatalan Pembayaran Perkahwinan",
+        "parent": "perkahwinan-dan-penceraian-ejpn-pendaftaran-perkahwinan"
+    },
+    "pengesahan-pendaftaran-perkahwinan": {
+        "label": "Pengesahan Pendaftaran Perkahwinan",
+        "parent": "perkahwinan-dan-penceraian-ejpn-pendaftaran-perkahwinan"
+    },
+    "pertukaran-tempat-dan-tarikh-upacara": {
+        "label": "Pertukaran Tempat Dan Tarikh Upacara",
+        "parent": "perkahwinan-dan-penceraian-ejpn-pendaftaran-perkahwinan"
+    },
+    "permohonan-bantahan-perkahwinan": {
+        "label": "Permohonan Bantahan Perkahwinan",
+        "parent": "perkahwinan-dan-penceraian-ejpn-pendaftaran-perkahwinan"
+    },
+    "bayaran-permohonan-bantahan-perkahwinan": {
+        "label": "Bayaran Permohonan Bantahan Perkahwinan",
+        "parent": "perkahwinan-dan-penceraian-ejpn-pendaftaran-perkahwinan"
+    },
+    "pembatalan-bayaran-permohonan-bantahan-perkahwinan": {
+        "label": "Pembatalan Bayaran Permohonan Bantahan Perkahwinan",
+        "parent": "perkahwinan-dan-penceraian-ejpn-pendaftaran-perkahwinan"
+    },
+    "kemaskini-keputusan-bantahan-perkahwinan": {
+        "label": "Kemaskini Keputusan Bantahan Perkahwinan",
+        "parent": "perkahwinan-dan-penceraian-ejpn-pendaftaran-perkahwinan"
+    },
+    "kemaskini-rekod-tangguh": {
+        "label": "Kemaskini Rekod Tangguh",
+        "parent": "perkahwinan-dan-penceraian-ejpn-pendaftaran-perkahwinan"
+    },
+    "pembatalan-perkahwinan": {
+        "label": "Pembatalan Perkahwinan",
+        "parent": "perkahwinan-dan-penceraian-ejpn"
+    },
+    "pembatalan-permohonan-perkahwinan": {
+        "label": "Pembatalan Permohonan Perkahwinan",
+        "parent": "pembatalan-perkahwinan"
+    },
+    "perkahwinan-dan-penceraian-ejpn-selenggara": {
+        "label": "Selenggara",
+        "parent": "perkahwinan-dan-penceraian-ejpn"
+    },
+    "penyelenggaraan-no-daftar-dan-no-siri-sijil": {
+        "label": "Penyelenggaraan No. Daftar dan No. Siri Sijil",
+        "parent": "perkahwinan-dan-penceraian-ejpn-selenggara"
+    },
+    "perkahwinan-dan-penceraian-ejpn-cetakan": {
+        "label": "Cetakan",
+        "parent": "perkahwinan-dan-penceraian-ejpn"
+    },
+    "pembatalan-daftar-cabutan-perkahwinan-dan-cetakan-semula": {
+        "label": "Pembatalan Daftar/Cabutan Perkahwinan dan Cetakan Semula",
+        "parent": "perkahwinan-dan-penceraian-ejpn-cetakan"
+    },
+    "cetakan-semula-surat-temujanji": {
+        "label": "Cetakan Semula Surat Temujanji",
+        "parent": "perkahwinan-dan-penceraian-ejpn-cetakan"
+    },
+    "cetakan-semula-validasi-borang-permohonan": {
+        "label": "Cetakan Semula Validasi Borang Permohonan",
+        "parent": "perkahwinan-dan-penceraian-ejpn-cetakan"
+    },
+    "cetakan-semula-semakan-daftar-perkahwinan": {
+        "label": "Cetakan Semula Semakan Daftar Perkahwinan",
+        "parent": "perkahwinan-dan-penceraian-ejpn-cetakan"
+    },
+    "cetakan-semula-no-resit": {
+        "label": "Cetakan Semula No Resit",
+        "parent": "perkahwinan-dan-penceraian-ejpn-cetakan"
+    },
+    "perkahwinan-dan-penceraian-ijpn": {
+        "label": "Perkahwinan dan Penceraian iJPN",
+        "parent": "urusniaga-utama"
+    },
+    "warganegara": {
+        "label": "Warganegara",
+        "parent": "urusniaga-utama"
+    },
+    "kad-pengenalan": {
+        "label": "Kad Pengenalan",
+        "parent": "urusniaga-utama"
+    },
+    "siasatan-dan-penguatkuasaan": {
+        "label": "Siasatan dan Penguatkuasaan",
+        "parent": "urusniaga-utama"
+    },
+    "senarai-hitam": {
+        "label": "Senarai Hitam",
+        "parent": "urusniaga-utama"
+    },
+    "kutipan-hasil-ijpn": {
+        "label": "Kutipan Hasil iJPN",
+        "parent": "urusniaga-utama"
+    },
+    "pengujudan-dan-pengesahan-rekod": {
+        "label": "Pengujudan dan Pengesahan Rekod",
+        "parent": "urusniaga-utama"
+    },
+    "afis": {
+        "label": "AFIS",
+        "parent": "urusniaga-utama"
+    },
+    "myidentity": {
+        "label": "myIDENTITY",
+        "parent": "urusniaga-utama"
+    },
+    "idata": {
+        "label": "iDATA",
+        "parent": "urusniaga-utama"
+    },
+    "sistem-dalaman-utama": {
+        "label": "Sistem Dalaman Utama",
+        "parent": null
+    },
+    "integrasi": {
+        "label": "Integrasi",
+        "parent": null
+    },
+    "hebahan": {
+        "label": "Hebahan",
+        "parent": null
+    },
+    "informasi": {
+        "label": "Informasi",
+        "parent": null
+    },
+    "selenggara-id": {
+        "label": "Selenggara ID",
+        "parent": null
+    },
+    "spk": {
+        "label": "SPK",
+        "parent": null
+    }
+}

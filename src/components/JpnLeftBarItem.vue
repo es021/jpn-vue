@@ -7,7 +7,7 @@
           <i v-else :class="`fa fa-dot-circle sm left text-muted`"></i>
         </div>
 
-        <router-link :to="href" :class="{ 'link': true, 'active': isActive }">
+        <router-link :to="href" :class="{ 'link': true, 'active': isActive, 'blur':isBlur }">
           {{data.label}}
         </router-link>
         <!-- <a :class="{ 'link': true, 'active': isActive }" :href="href">
@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import { getNaviUrl, getCurrentPage } from "../helper/navi-helper";
+import { getNaviInternalUrl, getCurrentPage } from "../helper/navi-helper";
 
 export default {
   name: "JpnLeftBarItem",
@@ -46,6 +46,7 @@ export default {
     return {
       isActive: false,
       isOpen: false,
+      isBlur: false,
       href: ""
     };
   },
@@ -54,8 +55,12 @@ export default {
   },
   methods: {
     init() {
+      if (this.data.children == null && this.data.url == "") {
+        this.isBlur = true;
+      }
+
       this.isActive = false;
-      this.href = getNaviUrl(this.data);
+      this.href = getNaviInternalUrl(this.data);
       var page = getCurrentPage(this.$route);
       if (page == this.data.id) {
         this.isActive = true;

@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="data.url" v-bind:style="{backgroundImage:backgroundImage}" class="jim-item">
+  <router-link :to="href" v-bind:style="{backgroundImage:backgroundImage}" class="jim-item">
       <div class="detail">
           <div class="label">{{data.label}}</div>
           <div class="desc">{{data.desc}}</div>
@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import { getNaviUrl } from "../helper/navi-helper";
+import { getNaviInternalUrl } from "../helper/navi-helper";
 export default {
   name: "ImageMenuItem",
   props: {
@@ -27,13 +27,17 @@ export default {
   },
   data() {
     return {
+      href:'',
       backgroundImage: `url('${require(`../image/${this.parentId}/${
         this.data.id
       }.jpg`)}')`
     };
   },
   created() {
-    this.data.url = getNaviUrl(this.data);
+    // somehow the props passed down is binded to other props as well
+    // demit
+
+    this.href = getNaviInternalUrl(this.data);
     //console.log(this.data.url);
   },
   methods: {}

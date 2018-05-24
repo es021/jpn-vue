@@ -19,12 +19,11 @@
         <b id="hdr-name" class="text-blue">{{user.name}}</b>
         <br>
         <small>
-            <span id="hdr-office">{{user.office}}</span>
-            <br>
-            <i id="hdr-time">{{user.login_time}}</i>
+            <div id="hdr-office" style="margin-bottom: 2px;">{{user.office}}</div>
+            <i id="hdr-time">Logged in at <b>{{user.login_time}}</b></i>
         </small>
         <small>
-            <div @click="logOut" class="link link-blue">Keluar <i class="fa fa-sign-out-alt"></i></div>
+            <div @click="logOut" class="link link-blue">Log Keluar <i class="fa fa-sign-out-alt"></i></div>
         </small>
     </div>
 </div>
@@ -33,6 +32,7 @@
 <script>
 import { goToHome, redirect } from "../helper/navi-helper";
 import { AuthHelper } from "../helper/auth-helper";
+import { getTimeString } from "../helper/time-helper";
 export default {
   name: "JpnHeader",
   props: {
@@ -45,22 +45,20 @@ export default {
     return {
       user: {
         name: "",
-        //office: "TODO BRANCH OFFICE",
-        office: "JPN IBU PEJABAT PUTRAJAYA",
-        //login_time: "April 28, 2018 09:30 AM"
+        office: "",
         login_time: ""
       }
     };
   },
   mounted() {
     if (this.loggedIn) {
-      var user = AuthHelper.getUser();
+      var store = AuthHelper.getStore();
+      var user = store.user;
 
       if (typeof user !== "undefined") {
         this.user.name = user.OPER_NAME;
-        // TODO Branch
-        this.user.login_time = user.OPER_LAST_SIGNON_DATE;
-        this.user.login_time += " " + user.Oper_Last_Logon_Time;
+        this.user.office = user.BRANCH_NAME + " " + user.BRANCH_ADD1;
+        this.user.login_time = getTimeString(store.login_time);
       }
     }
   },
@@ -69,7 +67,7 @@ export default {
       goToHome();
     },
     logOut() {
-      var res = confirm("Tekan 'OK' Untuk Keluar");
+      var res = confirm("Tekan 'OK' untuk Log Keluar");
       if (res) {
         AuthHelper.logout(() => {
           redirect(this, "/exit");

@@ -16,13 +16,32 @@
         padding: 0 5px;
         border-radius: 8px;
     }
+    a.link.blur {
+        opacity: 0.65;
+    }
     .lb-header {
         color: white;
         text-transform: uppercase;
         padding: 4px;
         padding-left: 5px;
         font-weight: bold;
+        padding-bottom: 8px;
         border-bottom: rgba(255, 255, 255, 0.5) solid 1px;
+        @include flex;
+        @include flex-align(center);
+        justify-content: space-between;
+        .app-status {
+            margin-right: 2px;
+            padding: 2px 4px;
+            font-size: 13px;
+            border-radius: 7px;
+        }
+        .app-status.online {
+            background: $COLOR-GREEN;
+        }
+        .app-status.offline {
+            background: $COLOR-RED;
+        }
     }
     text-align: left;
     overflow-x: scroll;

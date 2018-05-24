@@ -5,7 +5,7 @@ $ = jQuery;
 
 
 $(document).ready(function () {
-
+    var ROOT = "";
     function parseUrusniagaUtama() {
         var body = $("tbody");
         var GRP_NAME_COLOR = ["#70AD47", "#92D050"];
@@ -263,6 +263,73 @@ $(document).ready(function () {
     }
 
 
+    function getNavigation(parentList = [], navi = null, level = 0) {
+
+        // init
+        if (navi === null && level === 0) {
+            navi = ROOT;
+        }
+
+        if (level == parentList.length) {
+            return navi;
+        }
+
+        var curParent = parentList[level];
+
+        for (var i in navi) {
+            var parent = navi[i];
+            if (parent.id == curParent) {
+                return getNavigation(parentList, parent.children, level + 1);
+            }
+        }
+    }
+
+    function getParents(curId) {
+        var map = getMapNavi(ROOT);
+        var parents = [];
+        var curParent = null;
+        do {
+            var curNavi = map[curId];
+            if (curNavi) {
+                curParent = map[curId].parent;
+                if (curParent != null) {
+                    parents.unshift(curParent);
+                }
+            }
+            curId = curParent;
+        } while (curParent != null);
+
+        return parents;
+    }
+
+    function getNavigationSiblings(id) {
+        var parents = getParents(id);
+        return getNavigation(parents);
+    }
+
+    function getNavigationById(id) {
+        // if (id == NAVI_ROOT) {
+        //     return {
+        //         label: "Menu Utama",
+        //         children: getNavigation()
+        //     };
+        // }
+
+        // var debug = id == "pendaftaran-pengangkatan-mahkamah";
+
+        // if (debug) {
+        //     return {};
+        // }
+
+        var siblings = getNavigationSiblings(id);
+        for (var i in siblings) {
+            if (siblings[i].id == id) {
+                return siblings[i];
+            }
+        }
+    }
+
+
     function getMapNavi(naviRoot) {
         var master = {};
         function getMapObj(n, parent) {
@@ -297,10 +364,13 @@ $(document).ready(function () {
 
     //$("body").html(JSON.stringify(superGrandData));
 
+    // ###############################################################################
+    // START HERE
+
     var body = $("body");
 
-    $.get("http://localhost/test-e/dataset/navi-utama.json", function (res) {
-        var ROOT = JSON.parse(res);
+    $.get("navigation.json", function (res) {
+        ROOT = JSON.parse(res);
         for (var i in ROOT) {
             if (ROOT[i].id == "urusniaga-utama") {
                 ROOT[i].children = parseUrusniagaUtama();
@@ -308,6 +378,12 @@ $(document).ready(function () {
         }
 
         body.html("");
+
+        var insertSQL = createInsertSQL(ROOT);
+        appendDataToBody(insertSQL);
+
+        return;
+
         body.append("<h3>NAVIGATION TREE</h3>");
         appendDataToBody(JSON.stringify(ROOT));
 
@@ -321,6 +397,77 @@ $(document).ready(function () {
 
     function appendDataToBody(data) {
         body.append("<p style='font-size:40%'>" + data + "</p>");
+    }
+
+
+    function getVersion() {
+        var date = new Date();
+        var m = (date.getMonth() + 1);
+        if (m < 10) {
+            m = "0" + m;
+        }
+        var ver = date.getFullYear() + "" + m + "" + date.getDate();
+        ver += date.getHours() + "" + date.getMinutes() + "" + date.getSeconds();
+        return ver;
+    }
+
+    function createInsertSQL(ROOT) {
+        var mapParent = getMapNavi(ROOT);
+
+        //console.log(mapParent);
+        var LIMIT = 200;
+        var current = 1;
+
+        var sql = "";
+
+        function printSQL() {
+            sql = sql.slice(0, -1);
+            body.append(sql + "<br><br>");
+            sql = "INSERT INTO JPNCFG.dbo.NAVIGATION(NAVI_NAME, NAVI_LABEL, NAVI_CODE, NAVI_AUTH, NAVI_URL, NAVI_PARENT_NAME, NAVI_VER) VALUES";
+            sql += "\n";
+        }
+        var TOTAL = Object.keys(mapParent).length;
+
+        var version = getVersion();
+
+        for (var i in mapParent) {
+            if (current % LIMIT == 0 || current == 1) {
+                printSQL();
+            }
+
+            current++;
+
+            var label = mapParent[i]["label"];
+            var parent = mapParent[i]["parent"];
+            var obj = getNavigationById(i);
+
+            var url = obj.url;
+            var auth = obj.auth;
+            var code = obj.code;
+
+            if (code == null || typeof code === "undefined") {
+                code = "";
+            }
+
+            if (url == null || typeof url === "undefined") {
+                url = "";
+            }
+
+            if (parent == null || typeof parent === "undefined") {
+                parent = "";
+            }
+
+            if (auth == null || typeof auth === "undefined") {
+                auth = "";
+            }
+
+            console.log(i, label, code, parent, url, auth)
+            sql += `<br>('${i}', '${label}', '${code}', '${auth}', '${url}', '${parent}','${version}'),`;
+
+        }
+
+        printSQL();
+
 
     }
 

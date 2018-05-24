@@ -46,13 +46,21 @@ const WINDOW_ID = "JPN_WINDOW";
 
 
 export function openWindowPopup(url) {
-    var left = document.getElementById("jpn-left-bar").offsetWidth;
-    //var width = document.getElementById("jpn-content").clientWidth - left;
-    var width = screen.width - left;
-    var top = 100;
-    var height = screen.height - 200;
-    //var height = window.innerHeight;
+
     closeWindowPopup();
+    
+    // var left = document.getElementById("jpn-left-bar").offsetWidth;
+    // var width = screen.width - left;
+    // var top = 100;
+    // var height = screen.height - 200;
+
+    // fullscreen
+    var width = screen.width;
+    var height = screen.height;
+    var top = 0;
+    var left = 0;
+
+    
     
     windowPopup = window.open(
         url,
@@ -60,6 +68,8 @@ export function openWindowPopup(url) {
         `toolbar=no,scrollbars=yes,resizable=no,top=${top},left=${left},width=${width},height=${height}`,
         true
     );
+
+    return windowPopup;
 
     //setTimeout(function(){windowPopup.focus()},1000);
     //window.open('javascript:void window.focus()', WINDOW_ID, '');
