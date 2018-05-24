@@ -1,5 +1,4 @@
 @import './define/_constant.scss';
-
 .btn {
     background-color: #4CAF50;
     border: none;
@@ -13,26 +12,36 @@
     cursor: pointer;
 }
 
-.btn:hover{
+.btn:hover {
     opacity: 0.8;
 }
 
-.btn:active{
+.btn:active {
     opacity: 1;
 }
 
-.btn:disabled{
+.btn:disabled {
     opacity: 0.7 !important;
 }
 
-.btn.btn-lg{
+.btn.btn-lg {
     padding: 15px 32px;
 }
 
-.btn.btn-sm{
+.btn.btn-sm {
     padding: 10px 20px;
 }
 
 .btn.btn-blue {
     background-color: $COLOR-BLUE;
+}
+
+.btn.btn-link {
+    background-color: rgba(0, 0, 0, 0);
+    padding: 0px;
+    color: $COLOR-BLUE;
+}
+
+.btn.btn-red {
+    color: $COLOR-RED;
 }

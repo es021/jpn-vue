@@ -12,6 +12,7 @@
     </div>
     </div>
     <span v-else>
+      <AppPopup></AppPopup>
       <JpnHeader></JpnHeader>
       <div class="jpn-bar-content">
         <JpnLeftBar></JpnLeftBar>

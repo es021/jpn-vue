@@ -42,6 +42,17 @@
           </div>
         </div>      
       </div>
+      <!-- MANAGE NAVI -->
+      <div v-if="type==this.TYPE_MANAGE_NAVI">
+        <ManageNavi></ManageNavi>       
+      </div>
+      <!-- INVALID ROUTE -->
+      <div v-if="type==this.TYPE_INVALID">
+        <h3>
+          <small>Page Not Found</small>
+          <br>{{page}}
+        </h3>
+      </div>
       <!-- Default - Not Found -->
       <div v-else>
          <span v-html="this.content"></span>
@@ -71,6 +82,9 @@ export default {
       TYPE_IMG_MENU: "img-menu",
       TYPE_POPUP: "popup",
       TYPE_FRAME: "i-frame",
+      TYPE_MANAGE_NAVI: "manage-navi",
+      TYPE_INVALID: "invalid",
+
       loading: true,
       page: "",
       type: null,
@@ -118,7 +132,6 @@ export default {
     frameOnLoad() {
       this.iframeObj.loading = false;
       //console.log(this.$refs.iframe.style.height);
-
       // to toggle between has border and not
       var interval = setInterval(() => {
         this.iframeObj.class =
@@ -148,21 +161,25 @@ export default {
       // get page
       var page = getCurrentPage(this.$route);
       this.page = page;
+
+      // 1. check if manage navi page
+      if (this.page == this.TYPE_MANAGE_NAVI) {
+        this.type = this.TYPE_MANAGE_NAVI;
+        this.loading = false;
+        return;
+      }
+
       let naviObj = getNavigationById(page);
+
+      // 1. check if page route invalid
+      if (typeof naviObj === "undefined") {
+        this.type = this.TYPE_INVALID;
+        this.loading = false;
+        return;
+      }
+
       this.title = naviObj.label;
-
-      // debug for url
-      // if (
-      //   naviObj.url == "" ||
-      //   naviObj.url == null ||
-      //   typeof naviObj.url === "undefined"
-      // ) {
-      //   //naviObj.url = `http://192.168.0.240:8080/JPN/COOP.T3861501.TC.html`;
-      //   //naviObj.url = `nowhere`;
-      // }
-
       naviObj.url = formatUrl(naviObj.url);
-
       this.naviObj = naviObj;
 
       if (isMenuItem(this.naviObj.url) || page == "menu-utama") {
@@ -188,4 +205,14 @@ export default {
     }
   }
 };
+
+// debug for url
+// if (
+//   naviObj.url == "" ||
+//   naviObj.url == null ||
+//   typeof naviObj.url === "undefined"
+// ) {
+//   //naviObj.url = `http://192.168.0.240:8080/JPN/COOP.T3861501.TC.html`;
+//   //naviObj.url = `nowhere`;
+// }
 </script>

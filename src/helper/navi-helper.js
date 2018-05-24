@@ -5,11 +5,12 @@ export const NAVI_ROOT = "menu-utama";
 import { STORE_NAVI } from "../config/app-config";
 import { AuthErr } from "../helper/auth-helper";
 
-
 // parameter is callback 
 // called from app home
-export function loadNaviFromDB(success, error) {
-    var version = getNaviCurrentVer();
+export function loadNaviFromDB(success, error, version) {
+    if (typeof version === "undefined") {
+        version = getNaviCurrentVer();
+    }
 
     // if version is updated, will return error NO_NEW_VERSION
     postRequest(`${WebServiceRoot}/auth/getNavi`, { version: version },

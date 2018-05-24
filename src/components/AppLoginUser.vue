@@ -54,7 +54,7 @@ export default {
           // if logged in user is not same as user_id in param
           // , we need to logout first
           var user = AuthHelper.getUser();
-          if (user_id != user.OPER_ID) {
+          if (this.user_id != user.OPER_ID) {
             AuthHelper.logout();
           }
           AuthHelper.logout();
