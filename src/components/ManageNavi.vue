@@ -19,7 +19,8 @@
 </template>
 
 <script>
-import { loadNaviFromDB } from "../helper/navi-helper";
+import { loadNaviFromDB, updateNaviDB } from "../helper/navi-helper";
+import { postRequest } from "../helper/api-helper";
 import { mapGetters, mapMutations } from "vuex";
 
 export default {
@@ -41,6 +42,7 @@ export default {
   // },
   methods: {
     ...mapMutations(["openPopup"]),
+    authenticate(password) {},
     init() {
       var version = new Date().getTime();
       loadNaviFromDB(
@@ -56,15 +58,55 @@ export default {
       );
     },
     getFixSize(d) {
-      return `<div style='width:150px'>${d}</div>`;
+      return `<div style='width:150px; word-break: break-all !important;'>${d}</div>`;
     },
     /// ###########################################################
     // functions for Table Data
     editRow(d) {
+      //console.log(JSON.stringify(d));
+
+      var formProp = {
+        itemKey: "id",
+        onSubmit: (data, onSuccess, onError) => {
+          updateNaviDB(d["NAVI_ID"], data, onSuccess, onError);
+        },
+        defaultValue: {
+          NAVI_NAME: d.NAVI_NAME,
+          NAVI_LABEL: d.NAVI_LABEL,
+          NAVI_URL: d.NAVI_URL
+        },
+        successMes:
+          "<b>Record Successfully Updated</b><br>Please refresh this page to see the changes",
+        items: {
+          NAVI_NAME: {
+            id: "",
+            label: "Name",
+            type: "text",
+            placeholder: "page-name",
+            //required: true,
+            disabled: true
+          },
+          NAVI_LABEL: {
+            id: "",
+            label: "Label",
+            type: "text",
+            placeholder: "Page Name",
+            required: true
+          },
+          NAVI_URL: {
+            id: "",
+            label: "Url",
+            type: "text",
+            placeholder: "http://example.com/page-name"
+            //required: true
+          }
+        }
+      };
+
       this.openPopup({
-        title: `Edit Navigation ${d.NAVI_LABEL}`,
-        content: "ManageNavi",
-        prop: { test: d.NAVI_NAME }
+        title: `Editing Navigation ${d.NAVI_LABEL}`,
+        content: "Form",
+        prop: formProp
       });
       //console.log("edit", d.NAVI_ID);
     },
@@ -87,13 +129,18 @@ export default {
       newD.NAVI_PARENT_NAME = d.NAVI_PARENT_NAME;
       return newD;
     },
-    renderColumn(key, col) {
-      if (["NAVI_ID", "NAVI_LABEL", "NAVI_VER"].indexOf(key) >= 0) {
+    renderColumn(d, key, col) {
+      if (["NAVI_ID", "NAVI_VER"].indexOf(key) >= 0) {
         return `<td>${col}</td>`;
       }
 
       if (["NAVI_URL", "NAVI_NAME", "NAVI_PARENT_NAME"].indexOf(key) >= 0) {
         return `<td>${this.getFixSize(col)}</td>`;
+      }
+
+      if (key == "NAVI_LABEL") {
+        console.log(col);
+        return `<td><a href="/#/page/${d.NAVI_NAME}">${d.NAVI_LABEL}</a></td>`;
       }
       return false;
     }

@@ -36,6 +36,7 @@ export default {
     };
   },
   created() {
+    // load initial configuration
     loadNaviFromDB(
       res => {
         this.loading = false;
@@ -44,20 +45,34 @@ export default {
         if (typeof err === "string") {
           this.err = err;
         } else {
-          this.err = "Server Error"
+          this.err = "Server Error";
         }
       }
     );
   },
   mounted() {
-    if (!AuthHelper.loggedIn()) {
+    this.checkUserSession();
+  },
+  watch: {
+    $route(to, from) {
+      this.checkUserSession();
+    }
+  },
+  methods: {
+    checkUserSession() {
+      if (!AuthHelper.loggedIn(this.goToExit)) {
+        this.goToExit();
+        return;
+      }
+      // else if (AuthHelper.isSessionExpired()) {
+      //   AuthHelper.logout(() => {
+      //     redirect(this, "/exit");
+      //   });
+      //   return;
+      // }
+    },
+    goToExit() {
       redirect(this, "/exit");
-      return;
-    } else if (AuthHelper.isSessionExpired()) {
-      AuthHelper.logout(() => {
-        redirect(this, "/exit");
-      });
-      return;
     }
   }
 };

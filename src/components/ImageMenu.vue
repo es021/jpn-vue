@@ -31,9 +31,23 @@ export default {
       size: ""
     };
   },
-  created() {
-    if (this.data.length > 8) {
-      this.size = "md";
+  mounted() {
+    this.init();
+  },
+  watch: {
+    $route(to, from) {
+      this.init();
+    }
+  },
+  methods: {
+    init() {
+      if (this.data.length > 8) {
+        this.size = "md";
+      } else if (this.data.length <= 5) {
+        this.size = "xl";
+      } else {
+        this.size = "";
+      }
     }
   }
 };

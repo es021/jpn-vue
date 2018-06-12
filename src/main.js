@@ -15,9 +15,13 @@ import JpnLeftBarItem from '@/components/JpnLeftBarItem'
 import JpnContent from '@/components/JpnContent'
 import ImageMenu from '@/components/ImageMenu'
 import ImageMenuItem from '@/components/ImageMenuItem'
+import TextMenu from '@/components/TextMenu'
+import TextMenuItem from '@/components/TextMenuItem'
 import ManageNavi from '@/components/ManageNavi'
 import TableData from '@/components/TableData'
 import AppPopup from '@/components/AppPopup'
+import Form from '@/components/Form'
+import AdminConsole from '@/components/AdminConsole'
 
 Vue.component('JpnHeader', JpnHeader);
 Vue.component('JpnFooter', JpnFooter);
@@ -26,14 +30,18 @@ Vue.component('JpnLeftBarItem', JpnLeftBarItem);
 Vue.component('JpnContent', JpnContent);
 Vue.component('ImageMenu', ImageMenu);
 Vue.component('ImageMenuItem', ImageMenuItem);
+Vue.component('TextMenu', TextMenu);
+Vue.component('TextMenuItem', TextMenuItem);
 Vue.component('ManageNavi', ManageNavi);
 Vue.component('TableData', TableData);
 Vue.component('AppPopup', AppPopup);
+Vue.component('Form', Form);
+Vue.component('AdminConsole', AdminConsole);
 
 //import all style
 const scss = ["app", "form", "button", "content"
   , "general", "header", "image-menu", "left-bar"
-  , "table", "popup"];
+  , "table", "popup","text-menu"];
 
 scss.map((d, i) => {
   require(`./style/${d}.scss`);

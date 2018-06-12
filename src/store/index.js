@@ -1,5 +1,5 @@
 import popup from './modules/popup'
-
+import server from './modules/server'
 // Vue.use(Vuex)
 //import Vuex from 'vuex';
 
@@ -14,7 +14,8 @@ const debug = process.env.NODE_ENV !== 'production'
 
 export default {
     modules: {
-        popup
+        popup,
+        server
     },
     strict: debug
 };

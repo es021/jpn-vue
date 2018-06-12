@@ -32,7 +32,7 @@ String.prototype.replaceAll = function (search, replace) {
 
 //#########################################################
 // ---------- Window Popup ------------------------------ 
-var windowPopup = null;
+var windowPopups = {};
 const WINDOW_ID = "JPN_WINDOW";
 
 // function createYourWindow(paramWinId){
@@ -45,10 +45,10 @@ const WINDOW_ID = "JPN_WINDOW";
 //   }
 
 
-export function openWindowPopup(url) {
+export function openWindowPopup(url, id) {
 
-    closeWindowPopup();
-    
+    closeWindowPopup(id);
+
     // var left = document.getElementById("jpn-left-bar").offsetWidth;
     // var width = screen.width - left;
     // var top = 100;
@@ -60,14 +60,16 @@ export function openWindowPopup(url) {
     var top = 0;
     var left = 0;
 
-    
-    
-    windowPopup = window.open(
+    id = (typeof id === "undefined") ? WINDOW_ID : id;
+
+    var windowPopup = window.open(
         url,
-        WINDOW_ID,
+        id,
         `toolbar=no,scrollbars=yes,resizable=no,top=${top},left=${left},width=${width},height=${height}`,
         true
     );
+
+    windowPopups[id] = windowPopup;
 
     return windowPopup;
 
@@ -86,12 +88,12 @@ export function openWindowPopup(url) {
 //     var left = document.getElementById("jpn-left-bar").offsetWidth;
 //     //var width = document.getElementById("jpn-content").clientWidth - left;
 //     var width = screen.width - left;
-    
+
 //     var top = 100;
-    
+
 //     var height = screen.height - 200;
 //     //var height = window.innerHeight;
-    
+
 //     windowPopup = window.open(
 //         url,
 //         "_blank",
@@ -107,9 +109,12 @@ export function openWindowPopup(url) {
 //     //myWindow.document.location.href = "/example/test.html";
 // }
 
-export function closeWindowPopup() {
-    if (windowPopup !== null) {
+export function closeWindowPopup(id) {
+    id = (typeof id === "undefined") ? WINDOW_ID : id;
+    var windowPopup = windowPopups[id];
+
+    if (typeof windowPopup !== "undefined" && windowPopup !== null) {
         var r = windowPopup.close();
-        console.log("close",r);
+        console.log("close", r);
     }
 }

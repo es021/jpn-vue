@@ -1,5 +1,4 @@
 @import './define/_constant.scss';
-
 .jpn-form {
     max-width: 400px;
     margin: auto;
@@ -14,11 +13,20 @@
                 width: 100%;
             }
         }
+        .form-error {
+            color: $COLOR-RED;
+            font-style: italic;
+            font-size: 85%;
+        }
         width: 100%;
         text-align: left;
     }
     .form-item.error {
         color: $COLOR-RED;
+        text-align: center;
+    }
+    .form-item.success {
+        color: $COLOR-GREEN;
         text-align: center;
     }
     .form-item.submit {

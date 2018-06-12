@@ -2,6 +2,15 @@
 .jpn-content {
     background-size: cover;
     background-position: center center;
+    .button-back {
+        text-align: left;
+        a {
+            margin: 10px;
+        }
+        margin-bottom: -28px;
+        margin-top: -12px;
+        margin-left: -3px;
+    }
     .content-body {
         padding: 10px;
     }

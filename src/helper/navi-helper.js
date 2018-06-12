@@ -212,6 +212,26 @@ export function getCurrentPage(route) {
     return page;
 }
 
+export function getParentObject(id) {
+    var map = getNavigationMapRaw();
+    var mapObj = map[id];
+    var obj = null;
+    if (mapObj) {
+        if (mapObj.parent == null) {
+            obj = {
+                id: "",
+                label: "Menu Utama"
+            };
+        } else {
+            try {
+                obj = getNavigationById(mapObj.parent);
+            } catch (err) { }
+        }
+
+    }
+    return obj;
+}
+
 export function getParents(curId) {
     var map = getNavigationMapRaw();
     var parents = [];
@@ -326,4 +346,26 @@ export function getMapNavi() {
 
     allDescendants(getNavigationRaw());
     return master;
+}
+
+
+const NO_RET_ERR = "The statement did not return a result set.";
+export function updateNaviDB(id, param, success, error) {
+    param = JSON.stringify(param);
+    postRequest(`${WebServiceRoot}/auth/updateNavi`, { id: id, param: param }, res => {
+        try {
+            res = JSON.parse(res);
+            if (res.err !== null) {
+                if (res.err == NO_RET_ERR) {
+                    success(res);
+                } else {
+                    error(res.err);
+                }
+            }
+            success(res);
+        } catch (err) {
+            error(err);
+            return;
+        }
+    }, error);
 }

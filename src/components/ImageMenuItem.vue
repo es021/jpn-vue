@@ -27,10 +27,8 @@ export default {
   },
   data() {
     return {
-      href:'',
-      backgroundImage: `url('${require(`../image/${this.parentId}/${
-        this.data.id
-      }.jpg`)}')`
+      href: "",
+      backgroundImage: `url('${require(`../image/general-list.jpg`)}')`
     };
   },
   created() {
@@ -39,6 +37,10 @@ export default {
 
     this.href = getNaviInternalUrl(this.data);
     //console.log(this.data.url);
+
+    this.backgroundImage = `url('${require(`../image/${this.parentId}/${
+      this.data.id
+    }.jpg`)}')`;
   },
   methods: {}
 };

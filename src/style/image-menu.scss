@@ -1,6 +1,6 @@
 $DIMENSION: 200px;
 $SM_DIMENSION: 150px;
-$TRANSITION : 0.3s;
+$TRANSITION: 0.3s;
 .jpn-img-menu {
     display: flex;
     justify-content: center;
@@ -30,6 +30,7 @@ $TRANSITION : 0.3s;
             align-items: center;
             flex-direction: column;
             text-align: center;
+            height: 77px;
             .label {
                 font-weight: bold;
                 padding-top: 2px;
@@ -47,13 +48,20 @@ $TRANSITION : 0.3s;
     }
     .jim-item:hover {
         .detail {
-            height: $DIMENSION;
-            padding: 0;
+            height: $DIMENSION; //padding: 0;
         }
         .desc {
             display: initial;
             opacity: 1;
         }
+    }
+}
+
+// #########################################
+// xl
+.jpn-img-menu.xl {
+    .jim-item {
+        width: $SM_DIMENSION + 90px;
     }
 }
 

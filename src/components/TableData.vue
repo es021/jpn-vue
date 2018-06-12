@@ -13,7 +13,7 @@
               <tr v-for="d in data" v-bind:key="d[dataKey]" v-if="validRow(d)">
                 <td><a class="btn btn-link" @click="editRow(d)"><i class="fa fa-edit"></i></a></td>
                 <td><a class="btn btn-link" @click="deleteRow(d)"><i class="fa fa-trash"></i></a></td>
-                <td v-for="(col,key) in arrangeData(d)" v-html="renderColumn(key,col)"></td>
+                <td v-for="(col,key) in arrangeData(d)" v-html="renderColumn(d,key,col)"></td>
               </tr>
           </tbody>
         </table>
@@ -44,7 +44,7 @@ export default {
     },
     renderColumn: {
       type: Function,
-      default: (key, col) => {
+      default: (d, key, col) => {
         return key;
       }
     },

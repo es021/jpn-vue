@@ -4,10 +4,11 @@
     <div v-bind:style="{backgroundImage:backgroundImage}" class="jpn-login">
       <h2>Daftar Masuk</h2>
       <div v-if="loading">
+        <i class="fa fa-spinner fa-pulse fa-3x"></i><br><br>
         Logging in as <b>{{user_id}}</b> from PC <b>{{pc_id}}</b>
       </div>
       <div v-else>
-        <div v-if="err != ''" class="error">
+        <div v-if="err != ''" class="text-red">
           <span v-html="err"></span>
         </div>
         <div v-else>
@@ -40,6 +41,11 @@ export default {
   mounted() {
     this.init();
   },
+  watch: {
+    $route(to, from) {
+      this.init();
+    }
+  },
   methods: {
     init() {
       this.user_id = this.$route.params.user_id;
@@ -54,14 +60,13 @@ export default {
           // if logged in user is not same as user_id in param
           // , we need to logout first
           var user = AuthHelper.getUser();
-          if (this.user_id != user.OPER_ID) {
+          if (this.user_id.toUpperCase() != user.OPER_ID.toUpperCase()) {
             AuthHelper.logout();
+            this.login();
+          } else {
+            this.loading = false;
+            this.redirectToHome();
           }
-          AuthHelper.logout();
-          console.log("logged in user", user.OPER_ID);
-
-          this.loading = false;
-          this.redirectToHome();
         } else {
           this.login();
         }
@@ -71,7 +76,6 @@ export default {
       }
     },
     redirectToHome() {
-      //console.log("Redirect To Home");
       this.$router.replace(this.$route.query.redirect || "/");
     },
     login() {

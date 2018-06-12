@@ -50,14 +50,21 @@ export default {
     };
   },
   mounted() {
-    if (AuthHelper.loggedIn()) {
-      this.redirectToHome();
+    this.redirectToHomeIfLoggedIn();
+  },
+  watch: {
+    $route(to, from) {
+      this.redirectToHomeIfLoggedIn();
     }
   },
   methods: {
-    redirectToHome() {
-      //console.log("Redirect To Home");
-      this.$router.replace(this.$route.query.redirect || "/");
+    redirectToHomeIfLoggedIn() {
+      if (AuthHelper.loggedIn()) {
+        console.log("Redirect To Home");
+        this.$router.replace(this.$route.query.redirect || "/");
+      } else {
+        console.log("not logged in");
+      }
     },
     login() {
       if (this.username == "") {
