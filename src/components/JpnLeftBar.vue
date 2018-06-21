@@ -24,7 +24,6 @@
 
 <script>
 import { getNavigation, goToHome } from "../helper/navi-helper";
-import { WASPUrl } from "../config/app-config";
 import { mapGetters, mapMutations } from "vuex";
 
 export default {
@@ -32,9 +31,7 @@ export default {
   data() {
     return {
       data: [],
-      appStatus: "",
-      pingInterval: 5000,
-      pingTimeout: 2000
+      appStatus: ""
     };
   },
   computed: {
@@ -69,12 +66,18 @@ export default {
       var url = "http://10.23.191.124:8080/test/testDB2.jsp";
     },
     localUpdateWasStatus() {
+      console.log("Assaasda");
+      this.ping(this.serverState.WASPUrl, reachable => {
+        this.updateWasStatus({ online: reachable });
+        this.updateAppStatus();
+      });
+
       setInterval(() => {
-        this.ping(WASPUrl, reachable => {
+        this.ping(this.serverState.WASPUrl, reachable => {
           this.updateWasStatus({ online: reachable });
           this.updateAppStatus();
         });
-      }, this.pingInterval);
+      }, this.serverState.pingInterval);
     },
     ping(ip, callback) {
       var img = new Image();
@@ -93,7 +96,7 @@ export default {
           console.log("not reachable");
           callback(false);
         }
-      }, this.pingTimeout);
+      }, this.serverState.pingTimeout);
     }
   }
 };

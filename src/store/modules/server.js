@@ -2,7 +2,7 @@
 // initial state
 // shape: [{ id, quantity }]
 
-import { STORE_ADMIN } from '../../config/app-config';
+import { STORE_ADMIN, WASPUrl } from '../../config/app-config';
 
 function updateStoreAuth(state) {
     localStorage.setItem(STORE_ADMIN, JSON.stringify(state));
@@ -12,6 +12,9 @@ function getStoreAdmin() {
     var state = {
         wasOnline: true,
         db2Online: true,
+        pingInterval: 30000,
+        pingTimeout: 2000,
+        WASPUrl: WASPUrl,
         overrideOffline: false,
         overrideAuth: false,
     };
@@ -133,12 +136,18 @@ const mutations = {
     updateDb2Status(state, { online }) {
         state.db2Online = online;
     },
-    updateOverrideOffline(state, { status }) {
-        state.overrideOffline = status;
-        updateStoreAuth(state);
-    },
-    updateOverrideAuth(state, { status }) {
-        state.overrideAuth = status;
+    // updateOverrideOffline(state, { status }) {
+    //     state.overrideOffline = status;
+    //     updateStoreAuth(state);
+    // },
+    // updateOverrideAuth(state, { status }) {
+    //     state.overrideAuth = status;
+    //     updateStoreAuth(state);
+    // },
+    updateOverrideServerState(state, { newState }) {
+        for (var i in newState) {
+            state[i] = newState[i];
+        }
         updateStoreAuth(state);
     }
 }
