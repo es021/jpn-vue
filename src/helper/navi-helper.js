@@ -3,14 +3,61 @@ import { postRequest } from './api-helper';
 export const NAVI_ROOT = "menu-utama";
 
 import { STORE_NAVI } from "../config/app-config";
-import { AuthErr } from "../helper/auth-helper";
+import { AuthErr, AuthHelper } from "../helper/auth-helper";
+
+var user = AuthHelper.getUser();
+
+function isNaviAccesible(obj) {
+    if (obj.auth == "" && obj.auth_level == 0) {
+        return true;
+    }
+
+    if (obj.auth_level > 0) {
+        var oper_level = user["OPER_LVL" + obj.auth_level];
+
+        // kalau oper level x semua 0 baru lepas
+        if (oper_level != "00000000") {
+            if (obj.auth == "") {
+                // kalau auth dia kosong,
+                // if oper has at least one char "1", lulus
+                if (oper_level.indexOf("1") >= 0) {
+                    return true;
+                }
+            } else {
+                // kalau auth tak kosong
+                // perlu check kat index yang sama ada tak dalam auth navi
+                if (typeof oper_level === "string") {
+                    var i = 0;
+                    while (i < oper_level.length) {
+                        var char_level = oper_level.charAt(i);
+                        if (char_level == "1") {
+                            if (obj.auth.charAt(i) == "1") {
+                                return true;
+                            }
+                        }
+                        i++;
+                    }
+                }
+            }
+        }
+    }
+
+    console.log("No access", obj.code, obj.auth, obj.auth_level);
+
+    return false;
+
+}
 
 // parameter is callback 
 // called from app home
 export function loadNaviFromDB(success, error, version) {
+
+
     if (typeof version === "undefined") {
         version = getNaviCurrentVer();
     }
+
+    //version = (new Date()).getTime();
 
     // if version is updated, will return error NO_NEW_VERSION
     postRequest(`${WebServiceRoot}/auth/getNavi`, { version: version },
@@ -42,6 +89,7 @@ export function loadNaviFromDB(success, error, version) {
         });
 }
 
+
 function initNaviLocalStorage(dbData, ver) {
     function getChildrenObj(PARENTS, MAP_ID, id) {
         var childsId = PARENTS[id];
@@ -54,17 +102,23 @@ function initNaviLocalStorage(dbData, ver) {
         for (var i in childsId) {
             var ch = childsId[i];
 
-            IDS.push(ch);
-
             var raw = MAP_ID[ch];
             var obj = {
                 id: raw["NAVI_NAME"],
                 label: raw["NAVI_LABEL"],
                 url: raw["NAVI_URL"],
+                code: raw["NAVI_CODE"],
                 url_was: raw["NAVI_URL_WAS"],
+                auth: raw["NAVI_AUTH"],
+                auth_level: raw["NAVI_AUTH_LEVEL"],
                 children: []
             }
 
+            if (!isNaviAccesible(obj)) {
+                continue;
+            }
+
+            IDS.push(ch);
             toRet.push(obj);
         }
 
@@ -142,9 +196,16 @@ function initNaviLocalStorage(dbData, ver) {
             id: raw["NAVI_NAME"],
             label: raw["NAVI_LABEL"],
             url: raw["NAVI_URL"],
+            code: raw["NAVI_CODE"],
             url_was: raw["NAVI_URL_WAS"],
+            auth: raw["NAVI_AUTH"],
+            auth_level: raw["NAVI_AUTH_LEVEL"],
             isParent: true,
             children: children
+        }
+
+        if (!isNaviAccesible(obj)) {
+            continue;
         }
 
         NAVI_FINAL.push(obj);
@@ -252,7 +313,6 @@ export function getParents(curId) {
 
 
 export function getNavigation(parentList = [], navi = null, level = 0) {
-
     // init
     if (navi === null && level === 0) {
         navi = getNavigationRaw();

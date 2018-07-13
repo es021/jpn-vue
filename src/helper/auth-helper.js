@@ -1,5 +1,5 @@
 import { postRequest } from "./api-helper";
-import { WebServiceRoot, STORE_AUTH, STORE_ADMIN } from "../config/app-config";
+import { WebServiceRoot, STORE_AUTH, STORE_ADMIN, STORE_NAVI } from "../config/app-config";
 import { getUnixTimestampNow } from "./time-helper";
 
 const KEY = STORE_AUTH;
@@ -128,6 +128,7 @@ export const AuthHelper = {
         // remove user local storage
         localStorage.removeItem(KEY);
         localStorage.removeItem(STORE_ADMIN);
+        localStorage.removeItem(STORE_NAVI);
 
         // reinitialize storage
         initStorage();

@@ -29,7 +29,19 @@ export default {
     return {
       loading: true,
       data: null,
-      header: ["#", "#", "ID", "Label", "Url", "Version", "Name", "Parent Name"]
+      header: [
+        "#",
+        "#",
+        "ID",
+        "Label",
+        "Url",
+        "Code",
+        "Version",
+        "Auth",
+        "Auth Level",
+        "Name",
+        "Parent Name"
+      ]
     };
   },
   created() {
@@ -68,12 +80,15 @@ export default {
       var formProp = {
         itemKey: "id",
         onSubmit: (data, onSuccess, onError) => {
+          console.log(JSON.stringify(data));
           updateNaviDB(d["NAVI_ID"], data, onSuccess, onError);
         },
         defaultValue: {
           NAVI_NAME: d.NAVI_NAME,
           NAVI_LABEL: d.NAVI_LABEL,
-          NAVI_URL: d.NAVI_URL
+          NAVI_URL: d.NAVI_URL,
+          NAVI_AUTH: d.NAVI_AUTH,
+          NAVI_AUTH_LEVEL: d.NAVI_AUTH_LEVEL
         },
         successMes:
           "<b>Record Successfully Updated</b><br>Please refresh this page to see the changes",
@@ -97,6 +112,20 @@ export default {
             id: "",
             label: "Url",
             type: "text",
+            placeholder: "http://example.com/page-name"
+            //required: true
+          },
+          NAVI_AUTH: {
+            id: "",
+            label: "Auth",
+            type: "text",
+            placeholder: "http://example.com/page-name"
+            //required: true
+          },
+          NAVI_AUTH_LEVEL: {
+            id: "",
+            label: "Auth Level",
+            type: "number",
             placeholder: "http://example.com/page-name"
             //required: true
           }
@@ -124,13 +153,24 @@ export default {
       newD.NAVI_ID = d.NAVI_ID;
       newD.NAVI_LABEL = d.NAVI_LABEL;
       newD.NAVI_URL = d.NAVI_URL;
+      newD.NAVI_CODE = d.NAVI_CODE;
       newD.NAVI_VER = d.NAVI_VER;
+      newD.NAVI_AUTH = d.NAVI_AUTH;
+      newD.NAVI_AUTH_LEVEL = d.NAVI_AUTH_LEVEL;
       newD.NAVI_NAME = d.NAVI_NAME;
       newD.NAVI_PARENT_NAME = d.NAVI_PARENT_NAME;
       return newD;
     },
     renderColumn(d, key, col) {
-      if (["NAVI_ID", "NAVI_VER"].indexOf(key) >= 0) {
+      if (
+        [
+          "NAVI_ID",
+          "NAVI_CODE",
+          "NAVI_VER",
+          "NAVI_AUTH",
+          "NAVI_AUTH_LEVEL"
+        ].indexOf(key) >= 0
+      ) {
         return `<td>${col}</td>`;
       }
 

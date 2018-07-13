@@ -33,6 +33,9 @@
 import { goToHome, redirect } from "../helper/navi-helper";
 import { AuthHelper } from "../helper/auth-helper";
 import { getTimeString } from "../helper/time-helper";
+
+console.log(AuthHelper.getUser());
+
 export default {
   name: "JpnHeader",
   props: {

@@ -7,7 +7,9 @@
           <i v-else :class="`fa fa-dot-circle sm left text-muted`"></i>
         </div>
 
-        <router-link :to="href" :class="{ 'link': true, 'active': isActive, 'blur':isBlur }">
+        <router-link 
+          :title="`${data.auth}_${data.auth_level}`"
+          :to="href" :class="{ 'link': true, 'active': isActive, 'blur':isBlur }">
           {{data.label}}
         </router-link>
         <!-- <a :class="{ 'link': true, 'active': isActive }" :href="href">

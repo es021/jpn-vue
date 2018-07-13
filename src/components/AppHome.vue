@@ -42,6 +42,7 @@ export default {
         this.loading = false;
       },
       err => {
+        console.log(err);
         if (typeof err === "string") {
           this.err = err;
         } else {
