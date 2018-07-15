@@ -1,16 +1,20 @@
 <template>
-<div v-bind:style="{backgroundImage:backgroundImage}" class="jpn-content" id="jpn-content">
+<div class="jpn-content" id="jpn-content">
     <div v-if="loading">
         <br>
         <i class='fa fa-spinner fa-pulse fa-4x'></i>
         <div style="margin:10px">Sila Tunggu Sebentar</div>
     </div>
     <div v-else> 
+
+      <!-- button back -->
       <div v-if="parentObj !== null" class="button-back">
-        <router-link :to="parentUrl" class="btn btn-xs btn-blue">
-        <i class="fa fa-chevron-circle-left left"></i><b>{{parentObj.label}}</b>
+        <router-link :to="parentUrl" class="btn btn-link">
+          <i class="fa fa-chevron-circle-left left"></i>{{parentObj.label}}
         </router-link>
-        </div>
+      </div>
+      
+
       <!-- Image Menu -->
       <div v-if="type==this.TYPE_IMG_MENU">
         <ImageMenu :parentId="page" :title="imgMenuObj.title" :data="imgMenuObj.data"></ImageMenu>
@@ -22,19 +26,19 @@
       <!-- Window Popup -->
       <div v-if="type==this.TYPE_POPUP">
         <h1>{{title}}</h1>
-        <h3><small><i>Window Popup is currently opened for this page</i><br></small><u>{{naviObj.url}}</u></h3>
+        <i>Window Popup telah dibuka untuk transaksi ini</i><br><u>{{naviObj.url}}</u><br><br>
         <div v-if="!this.popupObj.closed">
           <div class="btn btn-lg btn-blue" @click="focusPopup">
             <i class="far fa-window-restore left"></i>
-            Show Window Popup
+            Papar Window Popup
           </div>
         </div>
         <div v-else>
-          Window Popup has <b>already been closed</b><br>Please <b>refresh page</b> to open new window popup. 
+          Window Popup <b>telah ditutup</b><br>Sila <b>refresh</b> untuk membuka window popup baru. 
           <br><br>
-          <div class="btn btn-lg" @click="refresh">
+          <div class="btn btn-lg btn" @click="refresh">
             <i class="fas fa-sync-alt left"></i>
-            Refresh Page
+            Refresh
           </div>
         </div>
       </div>
@@ -70,6 +74,8 @@
       <div v-else>
          <span v-html="this.content"></span>
       </div>
+
+    
     </div>
 </div>
 </template>
@@ -122,8 +128,8 @@ export default {
       popupObj: {
         windowPopup: null,
         closed: false
-      },
-      backgroundImage: `url('${require(`../image/content-bg.jpg`)}')`
+      }
+      //backgroundImage: `url('${require(`../image/content-bg.jpg`)}')`
     };
   },
   computed: {
@@ -261,6 +267,8 @@ export default {
         // load window popup
         this.type = this.TYPE_POPUP;
         this.popupObj.closed = false;
+
+        // only custom window open in window popup
         this.popupObj.windowPopup = openWindowPopup(
           this.naviObj.url,
           this.isCustomWindowId()

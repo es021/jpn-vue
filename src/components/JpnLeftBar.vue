@@ -5,7 +5,7 @@
         Menu Utama
       </router-link>
       <div :title="JSON.stringify(serverState)" :class="`app-status ${appStatus}`">
-        {{appStatus}}
+        {{appStatus == "online" ? "online" : "local sahaja"}}
       </div>
       <!-- <a class="link" v-on:click="goToHome" ><i class="fa fa-home left"></i>
       Menu Utama

@@ -40,7 +40,8 @@
             background: $COLOR-GREEN;
         }
         .app-status.offline {
-            background: $COLOR-RED;
+            background: $COLOR-YELLOW;
+            color: $COLOR-THEME;
         }
     }
     text-align: left;

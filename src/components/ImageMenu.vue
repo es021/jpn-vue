@@ -41,6 +41,7 @@ export default {
   },
   methods: {
     init() {
+    
       if (this.data.length > 8) {
         this.size = "md";
       } else if (this.data.length <= 5) {

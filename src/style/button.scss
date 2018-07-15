@@ -10,6 +10,7 @@
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
+    border-radius: 7px;
 }
 
 .btn:hover {
@@ -45,8 +46,17 @@
     background-color: rgba(0, 0, 0, 0);
     padding: 0px;
     color: $COLOR-BLUE;
+    text-decoration: underline;
 }
 
 .btn.btn-red {
     color: $COLOR-RED;
+}
+
+.btn.btn-theme {
+    background-color: $COLOR-THEME;
+}
+
+.btn.btn-theme-light {
+    background-color: lighten($COLOR-THEME,15);
 }

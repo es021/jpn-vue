@@ -1,7 +1,70 @@
 @import './define/_constant';
-$WIDTH: 450px;
+$WIDTH: 550px;
 $MIN-HEIGHT: 50px;
 $TRANSITION: 0.2s;
+
+$THEME: $COLOR-THEME;
+.jpn-text-menu {
+    display: flex;
+    justify-content: center;
+    flex-flow: column;
+    align-items: center;
+    flex-wrap: wrap;
+    .jtm-item {
+        margin-bottom: 9px;
+        border-radius: 7px;
+        -moz-transition: background-color $TRANSITION ease;
+        -webkit-transition: background-color $TRANSITION ease;
+        transition: background-color $TRANSITION ease;
+        text-decoration: none;
+        display: flex;
+        background-size: cover;
+        background-position: center center; //border: black solid 1px;
+        //box-shadow: 3px 2px 3px rgba(0, 0, 0, .5);
+        background: white; // height: $HEIGHT;
+        color: $THEME;
+        border: 1px solid $THEME;
+        width: $WIDTH;
+        cursor: pointer;
+        .detail {
+            //background: rgba(0, 0, 0, 0.05);
+            align-self: flex-end;
+            width: 100%;
+            height: 100%;
+            padding: 7px 10px;
+            display: flex;
+            justify-content: center;
+            text-align: left;
+            align-items: center;
+            .icon{
+                margin-right: 5px;
+                opacity: 0.7;
+                font-size: 120%;
+            }
+            .label {
+                width: 100%;
+                font-weight: bold;
+            }
+        }
+    }
+    .jtm-item:hover {
+        background: $THEME;
+        color: white;
+    }
+    .jtm-item:active {
+        background: $THEME;
+        color: white;
+    }
+    .jtm-item.blur {
+        opacity: 0.6;
+    }
+    .jtm-item.blur:hover {
+        background: rgba(255, 255, 255, 0.6);
+        color: $THEME;
+    }
+}
+
+/*
 .jpn-text-menu {
     display: flex;
     justify-content: center;
@@ -58,3 +121,5 @@ $TRANSITION: 0.2s;
         color: $COLOR-BLUE;
     }
 }
+
+*/

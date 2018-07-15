@@ -1,6 +1,7 @@
 <template>
   <router-link :to="href" :class="{ 'jtm-item': true, 'blur':isBlur }" :disabled="isBlur">
       <div class="detail">
+          <div class="icon"><i class="fa fa-chevron-circle-right left"></i></div>
           <div class="label">{{data.label}}</div>
       </div>
   </router-link>

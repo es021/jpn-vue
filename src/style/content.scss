@@ -5,7 +5,11 @@
     .button-back {
         text-align: left;
         a {
+            border-radius: 5px;
             margin: 10px;
+            .label{
+                padding-left: 3px;
+            }
         }
         margin-bottom: -28px;
         margin-top: -12px;
@@ -18,6 +22,6 @@
         text-align: center;
         width: 100%;
         margin-top: 20px;
-        color: $COLOR-BLUE;
+        color: $COLOR-THEME;
     }
 }
