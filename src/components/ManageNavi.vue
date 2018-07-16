@@ -125,7 +125,7 @@ export default {
           NAVI_AUTH_LEVEL: {
             id: "",
             label: "Auth Level",
-            type: "number",
+            type: "text",
             placeholder: "http://example.com/page-name"
             //required: true
           }

@@ -1,10 +1,19 @@
 <template>
-  <router-link :to="href" :class="{ 'jtm-item': true, 'blur':isBlur }" :disabled="isBlur">
+  <!-- <router-link :to="href" :class="{ 'jtm-item': true, 'blur':isBlur }" :disabled="isBlur">
       <div class="detail">
           <div class="icon"><i class="fa fa-chevron-circle-right left"></i></div>
           <div class="label">{{data.label}}</div>
       </div>
-  </router-link>
+  </router-link> -->
+
+  <AppLink :href="href" :styleObj="{backgroundImage:backgroundImage}"  
+     :disabled="isBlur"
+     :classObj="{ 'jtm-item': true, 'blur':isBlur }">
+     <div class="detail">
+          <div class="icon"><i class="fa fa-chevron-circle-right left"></i></div>
+          <div class="label">{{data.label}}</div>
+      </div>
+  </AppLink> 
 </template>
 
 <script>

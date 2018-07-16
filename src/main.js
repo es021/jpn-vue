@@ -20,6 +20,7 @@ import TextMenuItem from '@/components/TextMenuItem'
 import ManageNavi from '@/components/ManageNavi'
 import TableData from '@/components/TableData'
 import AppPopup from '@/components/AppPopup'
+import AppLink from '@/components/AppLink'
 import Form from '@/components/Form'
 import AdminConsole from '@/components/AdminConsole'
 
@@ -35,6 +36,7 @@ Vue.component('TextMenuItem', TextMenuItem);
 Vue.component('ManageNavi', ManageNavi);
 Vue.component('TableData', TableData);
 Vue.component('AppPopup', AppPopup);
+Vue.component('AppLink', AppLink);
 Vue.component('Form', Form);
 Vue.component('AdminConsole', AdminConsole);
 

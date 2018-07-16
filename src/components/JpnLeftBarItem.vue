@@ -7,11 +7,19 @@
           <i v-else :class="`fa fa-dot-circle sm left text-muted`"></i>
         </div>
 
-        <router-link 
+        <AppLink :href="href" 
+          :title="`${data.auth}_${data.auth_level}`"
+          :styleObj="{backgroundImage:backgroundImage}" 
+          :className="'jim-item'" 
+          :classObj="{ 'link': true, 'active': isActive, 'blur':isBlur }">
+           {{data.label}}
+        </AppLink> 
+
+        <!-- <router-link 
           :title="`${data.auth}_${data.auth_level}`"
           :to="href" :class="{ 'link': true, 'active': isActive, 'blur':isBlur }">
           {{data.label}}
-        </router-link>
+        </router-link> -->
         <!-- <a :class="{ 'link': true, 'active': isActive }" :href="href">
           {{data.label}}
         </a> -->

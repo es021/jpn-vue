@@ -60,7 +60,9 @@ export default {
 
       if (typeof user !== "undefined") {
         this.user.name = user.OPER_NAME;
-        this.user.office = user.BRANCH_NAME + " " + user.BRANCH_ADD1;
+        this.user.office = `${user.BRANCH_NAME} (${user.BRANCH_CODE})`;
+        //+ " " + user.BRANCH_NAME + " " + user.BRANCH_ADD1;
+        //+ " " + user.BRANCH_ADD1
         this.user.login_time = getTimeString(store.login_time);
       }
     }

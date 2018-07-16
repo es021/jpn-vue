@@ -1,16 +1,16 @@
 <template>
-  <router-link :to="href" :href="href" v-bind:style="{backgroundImage:backgroundImage}" class="jim-item">
+   <!-- <router-link :to="href"  v-bind:style="{backgroundImage:backgroundImage}" class="jim-item">
       <div :class="`detail`">
           <div class="label">{{data.label}}</div>
           <div class="desc">{{data.desc}}</div>
       </div>
-  </router-link>
-  <!-- <a :href="data.url" v-bind:style="{backgroundImage:backgroundImage}" class="jim-item">
-      <div class="detail">
+  </router-link>    -->
+  <AppLink :href="href" :styleObj="{backgroundImage:backgroundImage}" :classObj="{'jim-item': true}">
+    <div :class="`detail`">
           <div class="label">{{data.label}}</div>
           <div class="desc">{{data.desc}}</div>
       </div>
-  </a> -->
+  </AppLink> 
 </template>
 
 <script>
@@ -36,8 +36,6 @@ export default {
     // somehow the props passed down is binded to other props as well
     // demit
     this.href = getNaviInternalUrl(this.data);
-    //console.log(this.data.url);
-
     this.backgroundImage = `url('${require(`../image/${this.parentId}/${
       this.data.id
     }.jpg`)}')`;

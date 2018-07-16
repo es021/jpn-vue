@@ -18,22 +18,46 @@ import {
 } from "../helper/auth-helper";
 
 var user = AuthHelper.getUser();
-const isDebug = true;
+const isDebugFetch = false;
+const isDebugAccess = false;
 
 function isNaviAccesible(obj) {
-  if (isDebug) {
-    return true;
-  }
-  if (obj.auth == "" && obj.auth_level == 0) {
+
+  if (isDebugAccess) {
     return true;
   }
 
-  if (obj.auth_level > 0) {
-    var oper_level = user["OPER_LVL" + obj.auth_level];
+  var authLevels = [];
+  var auths = [];
+  if (obj.auth_level.indexOf(",") >= 0) {
+    authLevels = obj.auth_level.split(",");
+    auths = obj.auth.split(",");
+  } else {
+    authLevels = [obj.auth_level];
+    auths = [obj.auth];
+  }
+
+
+  for (var i in authLevels) {
+    var auth_level = authLevels[i];
+    var auth = auths[i];
+
+
+    // kalau level 0 display semua
+    if (auth_level == "0") {
+      return true;
+    }
+
+    // kalau level -1 hide semua
+    if (auth_level == "-1") {
+      return false;
+    }
+
+    var oper_level = user["OPER_LVL" + auth_level];
 
     // kalau oper level x semua 0 baru lepas
     if (oper_level != "00000000") {
-      if (obj.auth == "") {
+      if (auth == "") {
         // kalau auth dia kosong,
         // if oper has at least one char "1", lulus
         if (oper_level.indexOf("1") >= 0) {
@@ -47,7 +71,7 @@ function isNaviAccesible(obj) {
           while (i < oper_level.length) {
             var char_level = oper_level.charAt(i);
             if (char_level == "1") {
-              if (obj.auth.charAt(i) == "1") {
+              if (auth.charAt(i) == "1") {
                 return true;
               }
             }
@@ -58,7 +82,7 @@ function isNaviAccesible(obj) {
     }
   }
 
-  console.log("No access", obj.code, obj.auth, obj.auth_level);
+  console.log("No access", obj);
 
   return false;
 
@@ -73,7 +97,7 @@ export function loadNaviFromDB(success, error, version) {
     version = getNaviCurrentVer();
   }
 
-  if (isDebug) {
+  if (isDebugFetch) {
     version = (new Date()).getTime();
   }
 
@@ -381,10 +405,10 @@ export function getNavigationById(id) {
 }
 
 export function isExternalUrl(url) {
-  return url.indexOf("http" >= 0);
+  return url.indexOf("http") >= 0;
 }
+
 export function getTransactionUrl(d) {
-  return false;
   if (d.url.indexOf(TransactionUrlRedirect) >= 0 && d.url !== "" && d.url != null && typeof d.url !== "undefined") {
     var url = d.url;
     if (d.url.charAt(0) == "/") {
@@ -399,17 +423,11 @@ export function getTransactionUrl(d) {
 
 export function getNaviInternalUrl(d) {
   var r = "";
-  // if (d.url && d.url !== null && d.url !== "") {
-  //     r = d.url;
-  // } else {
-  //     r = `${AppRoot}/?page=${d.id}`;
-  // }
+
   r = getTransactionUrl(d);
   if (r === false) {
     r = `/page/${d.id}`;
   }
-
-  //r = "http://localhost:8080/JPN/COOP.T3861501.TC.html";
 
   return r;
 }
