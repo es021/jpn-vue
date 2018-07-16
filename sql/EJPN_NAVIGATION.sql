@@ -1,8 +1,8 @@
 -- Drop table
 
--- DROP TABLE JPNDB2T.dbo.NAVIGATION
+-- DROP TABLE JPNCFG.dbo.EJPN_NAVIGATION
 
-CREATE TABLE JPNDB2T.dbo.NAVIGATION (
+CREATE TABLE JPNCFG.dbo.EJPN_NAVIGATION (
 	NAVI_ID int NOT NULL IDENTITY(1,1),
 	NAVI_NAME varchar(500) NOT NULL,
 	NAVI_LABEL varchar(500) NOT NULL,
@@ -16,10 +16,9 @@ CREATE TABLE JPNDB2T.dbo.NAVIGATION (
 	CONSTRAINT NAVIGATION_PK PRIMARY KEY (NAVI_ID)
 )
 
-CREATE UNIQUE INDEX NAVIGATION_NAVI_NAME_IDX ON JPNDB2T.dbo.NAVIGATION (NAVI_NAME)
+CREATE UNIQUE INDEX NAVIGATION_NAVI_NAME_IDX ON JPNCFG.dbo.EJPN_NAVIGATION (NAVI_NAME)
 
-
-INSERT INTO JPNDB2T.dbo.NAVIGATION (NAVI_NAME,NAVI_LABEL,NAVI_CODE,NAVI_AUTH,NAVI_URL,NAVI_PARENT_NAME,NAVI_VER,NAVI_URL_WAS,NAVI_AUTH_LEVEL) VALUES 
+INSERT INTO JPNCFG.dbo.EJPN_NAVIGATION (NAVI_NAME,NAVI_LABEL,NAVI_CODE,NAVI_AUTH,NAVI_URL,NAVI_PARENT_NAME,NAVI_VER,NAVI_URL_WAS,NAVI_AUTH_LEVEL) VALUES 
 ('senarai-kerja','Senarai Kerja','','','','','20180716093933',NULL,'0')
 ,('urusniaga-utama','Urusniaga Utama','','','MENU_ITEM','','20180530111638',NULL,'0')
 ,('kelahiran','Kelahiran','','','http://10.23.191.36:8080/ROOT3/common/branch_login.jsp?pcid={{PC_ID}}','urusniaga-utama','20180714020310',NULL,'1')
@@ -31,7 +30,7 @@ INSERT INTO JPNDB2T.dbo.NAVIGATION (NAVI_NAME,NAVI_LABEL,NAVI_CODE,NAVI_AUTH,NAV
 ,('pengesahan-pendaftaran-pengangkatan-mahkamah','Pengesahan Pendaftaran Pengangkatan Mahkamah','382060','00100000','','pengangkatan-ejpn-pendaftaran-pengangkatan-mahkamah','20180517161818',NULL,'8')
 ,('cetakan-sijil-pendaftaran-pengangkatan-mahkamah','Cetakan Sijil Pendaftaran Pengangkatan Mahkamah','382070','11000000','','pengangkatan-ejpn-pendaftaran-pengangkatan-mahkamah','20180517161818',NULL,'8')
 ;
-INSERT INTO JPNDB2T.dbo.NAVIGATION (NAVI_NAME,NAVI_LABEL,NAVI_CODE,NAVI_AUTH,NAVI_URL,NAVI_PARENT_NAME,NAVI_VER,NAVI_URL_WAS,NAVI_AUTH_LEVEL) VALUES 
+INSERT INTO JPNCFG.dbo.EJPN_NAVIGATION (NAVI_NAME,NAVI_LABEL,NAVI_CODE,NAVI_AUTH,NAVI_URL,NAVI_PARENT_NAME,NAVI_VER,NAVI_URL_WAS,NAVI_AUTH_LEVEL) VALUES 
 ('bayaran-pendaftaran-pengangkatan-mahkamah','Bayaran Pendaftaran Pengangkatan Mahkamah','382000','01000000','','pengangkatan-ejpn-pendaftaran-pengangkatan-mahkamah','20180517161818',NULL,'8')
 ,('pembatalan-bayaran-pendaftaran-pengangkatan-mahkamah','Pembatalan Bayaran Pendaftaran Pengangkatan Mahkamah','382008','01000000','','pengangkatan-ejpn-pendaftaran-pengangkatan-mahkamah','20180517161818',NULL,'8')
 ,('serahan-daftar-individu-mykid','Serahan Daftar Individu/MyKid','384850','11000000','','pengangkatan-ejpn-pendaftaran-pengangkatan-mahkamah','20180517161818',NULL,'8')
@@ -43,7 +42,7 @@ INSERT INTO JPNDB2T.dbo.NAVIGATION (NAVI_NAME,NAVI_LABEL,NAVI_CODE,NAVI_AUTH,NAV
 ,('bayaran-pindaan-maklumat-pengangkatan-mahkamah','Bayaran Pindaan Maklumat Pengangkatan Mahkamah','383000','01000000','','permohonan-pindaan-maklumat-pengangkatan-mahkamah','20180517161818',NULL,'8')
 ,('pembatalan-bayaran-pindaan-maklumat-pengangkatan-mahkamah','Pembatalan Bayaran Pindaan Maklumat Pengangkatan Mahkamah','383008','01000000','','permohonan-pindaan-maklumat-pengangkatan-mahkamah','20180517161818',NULL,'8')
 ;
-INSERT INTO JPNDB2T.dbo.NAVIGATION (NAVI_NAME,NAVI_LABEL,NAVI_CODE,NAVI_AUTH,NAVI_URL,NAVI_PARENT_NAME,NAVI_VER,NAVI_URL_WAS,NAVI_AUTH_LEVEL) VALUES 
+INSERT INTO JPNCFG.dbo.EJPN_NAVIGATION (NAVI_NAME,NAVI_LABEL,NAVI_CODE,NAVI_AUTH,NAVI_URL,NAVI_PARENT_NAME,NAVI_VER,NAVI_URL_WAS,NAVI_AUTH_LEVEL) VALUES 
 ('cabutan','Cabutan','','','TEXT_MENU','pengangkatan-ejpn','20180714013750',NULL,'8')
 ,('permohonan-cabutan-sijil-pengangkatan','Permohonan Cabutan Sijil Pengangkatan','384050','11000000','','cabutan','20180517161818',NULL,'8')
 ,('pengesahan-cabutan-sijil-pengangkatan','Pengesahan Cabutan Sijil Pengangkatan','384060','00100000','','cabutan','20180517161818',NULL,'8')
@@ -55,7 +54,7 @@ INSERT INTO JPNDB2T.dbo.NAVIGATION (NAVI_NAME,NAVI_LABEL,NAVI_CODE,NAVI_AUTH,NAV
 ,('pengangkatan-ejpn-cetakan','Cetakan','','','TEXT_MENU','pengangkatan-ejpn','20180714013900',NULL,'8')
 ,('cetakan-semula-notis-perakuan-penerimaan-permohonan-pengangkatan','Cetakan Semula Notis Perakuan Penerimaan Permohonan Pengangkatan','385014','11000000','','pengangkatan-ejpn-cetakan','20180517161818',NULL,'8')
 ;
-INSERT INTO JPNDB2T.dbo.NAVIGATION (NAVI_NAME,NAVI_LABEL,NAVI_CODE,NAVI_AUTH,NAVI_URL,NAVI_PARENT_NAME,NAVI_VER,NAVI_URL_WAS,NAVI_AUTH_LEVEL) VALUES 
+INSERT INTO JPNCFG.dbo.EJPN_NAVIGATION (NAVI_NAME,NAVI_LABEL,NAVI_CODE,NAVI_AUTH,NAVI_URL,NAVI_PARENT_NAME,NAVI_VER,NAVI_URL_WAS,NAVI_AUTH_LEVEL) VALUES 
 ('cetakan-semula-notis-perakuan-penerimaan-pindaan-maklumat-pengangkatan','Cetakan Semula Notis Perakuan Penerimaan Pindaan Maklumat Pengangkatan','385016','11000000','','pengangkatan-ejpn-cetakan','20180517161818',NULL,'8')
 ,('cetakan-semula-surat-makluman-kepada-mahkamah','Cetakan Semula Surat Makluman Kepada Mahkamah','385018','11000000','','pengangkatan-ejpn-cetakan','20180517161818',NULL,'8')
 ,('cetakan-semula-surat-kepada-sesiapa-berkenaan','Cetakan Semula Surat Kepada Sesiapa Berkenaan','385020','11000000','','pengangkatan-ejpn-cetakan','20180517161818',NULL,'8')
@@ -67,7 +66,7 @@ INSERT INTO JPNDB2T.dbo.NAVIGATION (NAVI_NAME,NAVI_LABEL,NAVI_CODE,NAVI_AUTH,NAV
 ,('pengangkatan-ijpn','Pengangkatan iJPN','','','','urusniaga-utama','20180714015034',NULL,'-1')
 ,('pengurusan-cawangan-ejpn','Pengurusan Cawangan JPN','','','MENU_ITEM','urusniaga-utama','20180714015817',NULL,'0')
 ;
-INSERT INTO JPNDB2T.dbo.NAVIGATION (NAVI_NAME,NAVI_LABEL,NAVI_CODE,NAVI_AUTH,NAVI_URL,NAVI_PARENT_NAME,NAVI_VER,NAVI_URL_WAS,NAVI_AUTH_LEVEL) VALUES 
+INSERT INTO JPNCFG.dbo.EJPN_NAVIGATION (NAVI_NAME,NAVI_LABEL,NAVI_CODE,NAVI_AUTH,NAVI_URL,NAVI_PARENT_NAME,NAVI_VER,NAVI_URL_WAS,NAVI_AUTH_LEVEL) VALUES 
 ('pengurusan-cawangan-ejpn-selenggara','Selenggara','','','TEXT_MENU','pengurusan-cawangan-ejpn','20180530111500',NULL,'0')
 ,('selenggara-tempoh-notis-kutipan-mykid','Selenggara Tempoh Notis Kutipan MyKid','415004','00100000,00100000','https://xmail-01.ximplify.com/Default.aspx','pengurusan-cawangan-ejpn-selenggara','20180716094200',NULL,'4,8')
 ,('selenggara-nombor-telefon-pejabat-jpn','Selenggara Nombor Telefon Pejabat JPN','415006','00100000','http://192.168.0.240:8080/JPN/COOP.T3861501.TC.html','pengurusan-cawangan-ejpn-selenggara','20180517161818',NULL,'0')
@@ -79,7 +78,7 @@ INSERT INTO JPNDB2T.dbo.NAVIGATION (NAVI_NAME,NAVI_LABEL,NAVI_CODE,NAVI_AUTH,NAV
 ,('senarai-cetakan-sijil-mengikut-status','Senarai Cetakan Sijil Mengikut Status','415010','00100000','','sokongan-cetakan','20180517161818',NULL,'0')
 ,('teknikal','Teknikal','','','TEXT_MENU','pengurusan-cawangan-ejpn','20180530111500',NULL,'0')
 ;
-INSERT INTO JPNDB2T.dbo.NAVIGATION (NAVI_NAME,NAVI_LABEL,NAVI_CODE,NAVI_AUTH,NAVI_URL,NAVI_PARENT_NAME,NAVI_VER,NAVI_URL_WAS,NAVI_AUTH_LEVEL) VALUES 
+INSERT INTO JPNCFG.dbo.EJPN_NAVIGATION (NAVI_NAME,NAVI_LABEL,NAVI_CODE,NAVI_AUTH,NAVI_URL,NAVI_PARENT_NAME,NAVI_VER,NAVI_URL_WAS,NAVI_AUTH_LEVEL) VALUES 
 ('pertanyaan-translog','Pertanyaan Translog','-','11100000','','teknikal','20180517161818',NULL,'0')
 ,('pemindahan-rekod-urusniaga-luar-talian-ke-hos','Pemindahan Rekod Urusniaga Luar Talian ke Hos','-','00111111','','teknikal','20180517161818',NULL,'0')
 ,('offline-web-scheduler','Offline Web Scheduler','-','00111111','','teknikal','20180517161818',NULL,'0')
@@ -91,7 +90,7 @@ INSERT INTO JPNDB2T.dbo.NAVIGATION (NAVI_NAME,NAVI_LABEL,NAVI_CODE,NAVI_AUTH,NAV
 ,('pembatalan-bayaran-permohonan-perkahwinan','Pembatalan Bayaran Permohonan Perkahwinan','341108','01000000','','perkahwinan-dan-penceraian-ejpn-pendaftaran-perkahwinan','20180517161818',NULL,'4')
 ,('perakuan-perkahwinan','Perakuan Perkahwinan','341450','11000000','','perkahwinan-dan-penceraian-ejpn-pendaftaran-perkahwinan','20180517161818',NULL,'4')
 ;
-INSERT INTO JPNDB2T.dbo.NAVIGATION (NAVI_NAME,NAVI_LABEL,NAVI_CODE,NAVI_AUTH,NAVI_URL,NAVI_PARENT_NAME,NAVI_VER,NAVI_URL_WAS,NAVI_AUTH_LEVEL) VALUES 
+INSERT INTO JPNCFG.dbo.EJPN_NAVIGATION (NAVI_NAME,NAVI_LABEL,NAVI_CODE,NAVI_AUTH,NAVI_URL,NAVI_PARENT_NAME,NAVI_VER,NAVI_URL_WAS,NAVI_AUTH_LEVEL) VALUES 
 ('bayaran-perakuan-perkahwinan','Bayaran Perakuan Perkahwinan','341400','01000000','','perkahwinan-dan-penceraian-ejpn-pendaftaran-perkahwinan','20180517161818',NULL,'4')
 ,('pembatalan-bayaran-perakuan-perkahwinan','Pembatalan Bayaran Perakuan Perkahwinan','341408','01000000','','perkahwinan-dan-penceraian-ejpn-pendaftaran-perkahwinan','20180517161818',NULL,'4')
 ,('cetakan-semula-surat-perakuan-perkahwinan','Cetakan Semula Surat Perakuan Perkahwinan','347450','11000000','','perkahwinan-dan-penceraian-ejpn-pendaftaran-perkahwinan','20180517161818',NULL,'4')
@@ -103,7 +102,7 @@ INSERT INTO JPNDB2T.dbo.NAVIGATION (NAVI_NAME,NAVI_LABEL,NAVI_CODE,NAVI_AUTH,NAV
 ,('permohonan-bantahan-perkahwinan','Permohonan Bantahan Perkahwinan','342050','11000000','','perkahwinan-dan-penceraian-ejpn-pendaftaran-perkahwinan','20180517161818',NULL,'4')
 ,('bayaran-permohonan-bantahan-perkahwinan','Bayaran Permohonan Bantahan Perkahwinan','342000','01000000','','perkahwinan-dan-penceraian-ejpn-pendaftaran-perkahwinan','20180517161818',NULL,'4')
 ;
-INSERT INTO JPNDB2T.dbo.NAVIGATION (NAVI_NAME,NAVI_LABEL,NAVI_CODE,NAVI_AUTH,NAVI_URL,NAVI_PARENT_NAME,NAVI_VER,NAVI_URL_WAS,NAVI_AUTH_LEVEL) VALUES 
+INSERT INTO JPNCFG.dbo.EJPN_NAVIGATION (NAVI_NAME,NAVI_LABEL,NAVI_CODE,NAVI_AUTH,NAVI_URL,NAVI_PARENT_NAME,NAVI_VER,NAVI_URL_WAS,NAVI_AUTH_LEVEL) VALUES 
 ('pembatalan-bayaran-permohonan-bantahan-perkahwinan','Pembatalan Bayaran Permohonan Bantahan Perkahwinan','342008','01000000','','perkahwinan-dan-penceraian-ejpn-pendaftaran-perkahwinan','20180517161818',NULL,'4')
 ,('kemaskini-keputusan-bantahan-perkahwinan','Kemaskini Keputusan Bantahan Perkahwinan','342150','00110000','','perkahwinan-dan-penceraian-ejpn-pendaftaran-perkahwinan','20180517161818',NULL,'4')
 ,('kemaskini-rekod-tangguh','Kemaskini Rekod Tangguh','343950','11000000','','perkahwinan-dan-penceraian-ejpn-pendaftaran-perkahwinan','20180517161818',NULL,'4')
@@ -115,7 +114,7 @@ INSERT INTO JPNDB2T.dbo.NAVIGATION (NAVI_NAME,NAVI_LABEL,NAVI_CODE,NAVI_AUTH,NAV
 ,('pembatalan-daftar-cabutan-perkahwinan-dan-cetakan-semula','Pembatalan Daftar/Cabutan Perkahwinan dan Cetakan Semula','347050','11000000','','perkahwinan-dan-penceraian-ejpn-cetakan','20180517161818',NULL,'4')
 ,('cetakan-semula-surat-temujanji','Cetakan Semula Surat Temujanji','347350','11000000','','perkahwinan-dan-penceraian-ejpn-cetakan','20180517161818',NULL,'4')
 ;
-INSERT INTO JPNDB2T.dbo.NAVIGATION (NAVI_NAME,NAVI_LABEL,NAVI_CODE,NAVI_AUTH,NAVI_URL,NAVI_PARENT_NAME,NAVI_VER,NAVI_URL_WAS,NAVI_AUTH_LEVEL) VALUES 
+INSERT INTO JPNCFG.dbo.EJPN_NAVIGATION (NAVI_NAME,NAVI_LABEL,NAVI_CODE,NAVI_AUTH,NAVI_URL,NAVI_PARENT_NAME,NAVI_VER,NAVI_URL_WAS,NAVI_AUTH_LEVEL) VALUES 
 ('cetakan-semula-validasi-borang-permohonan','Cetakan Semula Validasi Borang Permohonan','347750','11000000','','perkahwinan-dan-penceraian-ejpn-cetakan','20180517161818',NULL,'4')
 ,('cetakan-semula-semakan-daftar-perkahwinan','Cetakan Semula Semakan Daftar Perkahwinan','347850','11000000','','perkahwinan-dan-penceraian-ejpn-cetakan','20180517161818',NULL,'4')
 ,('cetakan-semula-no-resit','Cetakan Semula No Resit','349010','01000000','','perkahwinan-dan-penceraian-ejpn-cetakan','20180517161818',NULL,'4')
@@ -127,7 +126,7 @@ INSERT INTO JPNDB2T.dbo.NAVIGATION (NAVI_NAME,NAVI_LABEL,NAVI_CODE,NAVI_AUTH,NAV
 ,('kutipan-hasil-ijpn','Kutipan Hasil iJPN','','','','urusniaga-utama','20180714014947',NULL,'-1')
 ,('pengujudan-dan-pengesahan-rekod','Pengujudan dan Pengesahan Rekod','','','','urusniaga-utama','20180714015001',NULL,'-1')
 ;
-INSERT INTO JPNDB2T.dbo.NAVIGATION (NAVI_NAME,NAVI_LABEL,NAVI_CODE,NAVI_AUTH,NAVI_URL,NAVI_PARENT_NAME,NAVI_VER,NAVI_URL_WAS,NAVI_AUTH_LEVEL) VALUES 
+INSERT INTO JPNCFG.dbo.EJPN_NAVIGATION (NAVI_NAME,NAVI_LABEL,NAVI_CODE,NAVI_AUTH,NAVI_URL,NAVI_PARENT_NAME,NAVI_VER,NAVI_URL_WAS,NAVI_AUTH_LEVEL) VALUES 
 ('afis','AFIS','','','','urusniaga-utama','20180517161818',NULL,'0')
 ,('myidentity','myIDENTITY','','','','urusniaga-utama','20180517161818',NULL,'0')
 ,('idata','iDATA','','','http://google.com','urusniaga-utama','20180528104239',NULL,'0')
@@ -139,7 +138,7 @@ INSERT INTO JPNDB2T.dbo.NAVIGATION (NAVI_NAME,NAVI_LABEL,NAVI_CODE,NAVI_AUTH,NAV
 ,('spk','SPK','','','','','20180517161818',NULL,'0')
 ,('symac','SYMAC','','','','sistem-dalaman-utama','20180524092048',NULL,'0')
 ;
-INSERT INTO JPNDB2T.dbo.NAVIGATION (NAVI_NAME,NAVI_LABEL,NAVI_CODE,NAVI_AUTH,NAVI_URL,NAVI_PARENT_NAME,NAVI_VER,NAVI_URL_WAS,NAVI_AUTH_LEVEL) VALUES 
+INSERT INTO JPNCFG.dbo.EJPN_NAVIGATION (NAVI_NAME,NAVI_LABEL,NAVI_CODE,NAVI_AUTH,NAVI_URL,NAVI_PARENT_NAME,NAVI_VER,NAVI_URL_WAS,NAVI_AUTH_LEVEL) VALUES 
 ('sistem-esijil','Sistem eSijil','','','http://esijiltraining.jpn.gov.my/skd','sistem-dalaman-utama','20180524092048',NULL,'0')
 ,('cuid','CUID','','','http://jpncuid.jpn.gov.my','sistem-dalaman-utama','20180524092048',NULL,'0')
 ,('bis','BIS','','','','sistem-dalaman-utama','20180524092048',NULL,'0')
