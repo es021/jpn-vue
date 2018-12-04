@@ -4,7 +4,7 @@
       <router-link class="link" to="/" ><i class="fa fa-home left"></i>
         Menu Utama
       </router-link>
-      <div :title="JSON.stringify(serverState)" :class="`app-status ${appStatus}`">
+      <div :hidden="true" :title="JSON.stringify(serverState)" :class="`app-status ${appStatus}`">
         {{appStatus == "online" ? "online" : "local sahaja"}}
       </div>
       <!-- <a class="link" v-on:click="goToHome" ><i class="fa fa-home left"></i>
@@ -44,8 +44,8 @@ export default {
     this.data = getNavigation();
   },
   mounted() {
-    this.updateAppStatus();
-    this.localUpdateWasStatus();
+    //this.updateAppStatus();
+    //this.localUpdateWasStatus();
   },
   methods: {
     ...mapMutations({
@@ -66,7 +66,6 @@ export default {
       var url = "http://10.23.191.124:8080/test/testDB2.jsp";
     },
     localUpdateWasStatus() {
-      console.log("Assaasda");
       this.ping(this.serverState.WASPUrl, reachable => {
         this.updateWasStatus({ online: reachable });
         this.updateAppStatus();

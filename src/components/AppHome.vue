@@ -7,8 +7,14 @@
       <br>
       Loading App Configuration...
     <div style="color:red;" v-if="err !='' ">
-      <br><b>ERROR</b><br>
-      {{err}}
+      <div v-if="doRefresh">
+        Refresh Page
+      </div>
+      <div v-else>
+        <br>
+        <b>ERROR</b><br>
+        {{err}}
+      </div>
     </div>
     </div>
     <span v-else>
@@ -37,6 +43,7 @@ export default {
   },
   created() {
     // load initial configuration
+    this.doRefresh = false;
     loadNaviFromDB(
       res => {
         this.loading = false;
@@ -46,7 +53,10 @@ export default {
         if (typeof err === "string") {
           this.err = err;
         } else {
-          this.err = "Server Error";
+          console.log(err);
+          this.doRefresh = true;
+          //this.err = "Refreshing Page";
+          location.reload();
         }
       }
     );

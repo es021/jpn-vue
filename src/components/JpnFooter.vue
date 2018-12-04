@@ -1,8 +1,8 @@
 <template>
  <div class="jpn-footer">
-   <div class="navi-ver">
+   <!-- <div class="navi-ver">
      Version : {{naviVer}} {{test}}
-   </div>
+   </div> -->
 </div>
 </template>
 
@@ -24,6 +24,7 @@ export default {
   },
   created() {
     this.naviVer = getNaviCurrentVer();
+    console.log("Version",this.naviVer);
   }
 };
 </script>
