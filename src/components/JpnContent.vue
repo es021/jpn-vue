@@ -273,12 +273,14 @@ export default {
           this.naviObj.url,
           this.isCustomWindowId()
         );
-        
-        // go to main menu
-        setTimeout(() => {
-          window.location = AppRoot;
-        }, 1000);
 
+        //console.log("this.popupObj.windowPopup", this.popupObj.windowPopup);
+        // go to main menu
+        if (this.popupObj.windowPopup !== null) {
+          setTimeout(() => {
+            window.location = AppRoot;
+          }, 100);
+        }
 
       } else {
         this.type = "";
