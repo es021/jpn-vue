@@ -93,7 +93,7 @@ import {
 
 import { formatUrl, isImageMenu, isTextMenu } from "../helper/url-helper";
 import { getRequest } from "../helper/api-helper";
-import { Domain } from "../config/app-config";
+import { Domain, AppRoot } from "../config/app-config";
 
 export default {
   name: "JpnContent",
@@ -273,6 +273,13 @@ export default {
           this.naviObj.url,
           this.isCustomWindowId()
         );
+        
+        // go to main menu
+        setTimeout(() => {
+          window.location = AppRoot;
+        }, 1000);
+
+
       } else {
         this.type = "";
         this.content = "<h2>" + this.title + "</h2>";
