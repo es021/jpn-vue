@@ -21,6 +21,8 @@
 
 <script>
 import { AuthHelper, AuthErr } from "../helper/auth-helper";
+import { getRequest } from "../helper/api-helper";
+import { Domain, isProd } from "../config/app-config";
 export default {
   data() {
     return {
@@ -47,10 +49,19 @@ export default {
     }
   },
   methods: {
+    updateRefServer() {
+      let domainUrl = isProd ? Domain : "http://localhost:8080";
+      let urlUpdate = domainUrl + "/soap-middleware/update-server-ref.jsp";
+      getRequest(urlUpdate, res => {}, err => {});
+    },
     init() {
       this.user_id = this.$route.params.user_id;
 
       if (this.user_id != null) {
+        // ADDED FEATURE
+        // send request to update ref kat local
+        this.updateRefServer();
+
         // user_id split into user_id and pc_id
         var params = this.user_id.split("-");
         this.user_id = params[0];

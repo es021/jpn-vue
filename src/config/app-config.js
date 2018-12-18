@@ -1,4 +1,4 @@
-const isProd = process.env.NODE_ENV == "production";
+export const isProd = process.env.NODE_ENV == "production";
 
 // server --> "http://192.168.0.240:8080" 
 // aidy --> "http://192.168.0.141:8080" 
