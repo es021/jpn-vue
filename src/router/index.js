@@ -5,6 +5,7 @@ import AppHome from '@/components/AppHome'
 //import AppLoginMachine from '@/components/AppLoginMachine'
 import AppLoginUser from '@/components/AppLoginUser'
 import AppExit from '@/components/AppExit'
+import AppLoginMockup from '@/components/AppLoginMockup'
 
 // register Router
 Vue.use(Router)
@@ -31,6 +32,11 @@ export default new Router({
       path: '/login/:user_id',
       name: 'AppLoginUser',
       component: AppLoginUser
+    },
+    {
+      path: '/daftar-masuk',
+      name: 'AppLoginMockup',
+      component: AppLoginMockup
     },
     /*
     {
