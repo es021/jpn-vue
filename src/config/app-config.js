@@ -9,6 +9,7 @@ export const WebServiceRoot = isProd ? `${Domain}/home-webservice` : "http://loc
 
 export const TransactionUrl = location.origin + "/jpn-transformasi/#/";
 export const TransactionUrlRedirect = "transaction/T";
+export const EjpnUrlRedirect = "common/branch_login.jsp";
 
 export const AppPath = {
   Asset: AppRoot + "/asset",

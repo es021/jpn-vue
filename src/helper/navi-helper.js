@@ -2,8 +2,12 @@ import {
   AppRoot,
   WebServiceRoot,
   TransactionUrlRedirect,
-  TransactionUrl
+  TransactionUrl,
+  EjpnUrlRedirect
 } from '../config/app-config';
+import {
+  formatUrl
+} from './url-helper';
 import {
   postRequest
 } from './api-helper';
@@ -409,13 +413,20 @@ export function isExternalUrl(url) {
 }
 
 export function getTransactionUrl(d) {
-  if (d.url.indexOf(TransactionUrlRedirect) >= 0 && d.url !== "" && d.url != null && typeof d.url !== "undefined") {
-    var url = d.url;
-    if (d.url.charAt(0) == "/") {
-      url = d.url.substring(1, d.url.length);
+  if (d.url !== "" && d.url != null && typeof d.url !== "undefined") {
+    if (d.url.indexOf(TransactionUrlRedirect) >= 0) {
+      var url = d.url;
+      if (d.url.charAt(0) == "/") {
+        url = d.url.substring(1, d.url.length);
+      }
+      var r = TransactionUrl + url;
+      return r;
     }
-    var r = TransactionUrl + url;
-    return r;
+
+    if (d.url.indexOf(EjpnUrlRedirect) >= 0) {
+      return formatUrl(d.url);
+    }
+
   }
 
   return false;
